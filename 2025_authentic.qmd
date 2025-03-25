@@ -73,7 +73,7 @@ Low Cognitive Load
 ## Authenticity? - OSCE
 
 | Patient - คุณสมชาย แข็งแรง               | Doctor - นศพ.ปุญญภัทร               |
-|--------------------------------------|----------------------------------|
+|----------------------------------------|-----------------------------------|
 |                                        | สวัสดีครับ คุณสมชาย ผม นศพ.ปุญญภัทร ปี 6 |
 | สวัสดีครับหมอ ผมหายใจเหนื่อยมา 2-3 วันแล้วครับ | อาการเหนื่อยเป็นยังไงหรอครับ           |
 | เวลาผมเดิน 30-40 นาที มันก็จะเริ่มเหนื่อย      | มีโรคประจำตัวอะไรบ้างครับ             |
@@ -86,6 +86,7 @@ Low Cognitive Load
 :::
 
 ## Authenticity? - WPBA
+
 ### Does authentic assessment undermine authentic learning?
 
 ::: incremental
@@ -99,8 +100,6 @@ Low Cognitive Load
 :::
 
 ## Authenticity? - Projects
-
-
 
 ## Check Reliability
 
