@@ -8,11 +8,15 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - 2025_authentic.qmd
       - about.qmd
 
 format:
   html:
     theme: lux
+    mainfont: arial
+    fontsize: 1.5rem
+    monofont: courier new
     css: styles.css
     toc: true
 
