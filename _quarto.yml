@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Health Science Education Resources - PrabPrime"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - 2025_authentic.qmd
+
+format:
+  html:
+    theme: lux
+    mainfont: arial
+    fontsize: 1.5rem
+    monofont: courier new
+    css: styles.css
+    toc: true
+
+editor: visual
+
