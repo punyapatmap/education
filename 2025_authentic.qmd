@@ -12,7 +12,6 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 ---
 
 ## Authentic Assessment (AA)
-
 ### 3 Main attributes of AA
 
 ::: incremental
@@ -27,22 +26,32 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
     -   Related-competencies
 :::
 
-## Consensus of Good Assessment
-
+## Authentic form Good Assessment Perspectives
 ### Where the authentic assessment shine in the Ottawa consensus of good assessment?
 
 ::::: columns
 ::: {.column width="50%"}
+
 1.Validity
+
 2.Reliability
+
 3.Equivalence
+
+::: {.fragment .highlight-red}
 4.Feasibility
 :::
 
+:::
+
 ::: {.column width="50%"}
+
 5.Educational effect
+
 6.Catalytic effect
+
 7.Acceptability
+
 :::
 :::::
 
