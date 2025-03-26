@@ -12,6 +12,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 ---
 
 ## Authentic Assessment (AA)
+
 ### 3 Main attributes of AA
 
 ::: incremental
@@ -27,11 +28,11 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 :::
 
 ## Authentic form Good Assessment Perspectives
+
 ### Where the authentic assessment shine in the Ottawa consensus of good assessment?
 
-::::: columns
-::: {.column width="50%"}
-
+:::::: columns
+:::: {.column width="50%"}
 1.Validity
 
 2.Reliability
@@ -41,19 +42,16 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 ::: {.fragment .highlight-red}
 4.Feasibility
 :::
-
-:::
+::::
 
 ::: {.column width="50%"}
-
 5.Educational effect
 
 6.Catalytic effect
 
 7.Acceptability
-
 :::
-:::::
+::::::
 
 ::: footer
 @2018_norcini.etal
@@ -77,7 +75,9 @@ Low Cognitive Load
 
 ## Authenticity? - Documentation
 
-![](medical-transfer%20records.png){width="1000"}
+![](medical-transfer records.png){fig-align="center"}
+
+![](medical-transfer%2%20records.png){width="1000"}
 
 ## Authenticity? - OSCE
 
@@ -95,16 +95,19 @@ Low Cognitive Load
 :::
 
 ## Authenticity? - WPBA
+
 ### Does authentic assessment undermine authentic learning?
 
-::: {.callout-warning}
+::: callout-warning
 ## It undermines
+
 Only if students perceive assessment as **high-stake and judgmental**
 :::
 
 . . .
 
 ### AA works, when
+
 -   Students could show undercentainty and vulnaribility
 -   Using WPA is authentic and acknowledge complexity of case
 
