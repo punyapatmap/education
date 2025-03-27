@@ -42,17 +42,14 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 
 3.Equivalence
 
-::: {.fragment .highlight-red fragment-index=1}
-4.Feasibility
-:::
+[4.Feasibility]{.fragment .highlight-red fragment-index=1}
+
 ::::
 
 :::: {.column width="50%"}
 5.Educational effect
 
-::: {.fragment .highlight-red fragment-index=1}
-6.Catalytic effect
-:::
+[6.Catalytic effect]{.fragment .highlight-red fragment-index=1}
 
 7.Acceptability
 ::::
@@ -66,7 +63,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 
 Higher Fidelity introduces Higher cognitive load
 
-I think one of <span class="fragment highlight-red" fragment-index=2> the most important </span> graph of all time is that this should include all the highlight we want to present.
+I think one of [the most important graph]{.fragment .highlight-red fragment-index=1} of [all time is that this should include all the highlight we want to present]{.fragment .highlight-blue .bold}.
 
 :::::: r-stack
 ::: {data-id="box1" style="background: #e83e8c; width: 350px; height: 350px; border-radius: 200px;"}
@@ -93,7 +90,7 @@ Low Cognitive Load
 | เวลาผมเดิน 30-40 นาที มันก็จะเริ่มเหนื่อย      | มีโรคประจำตัวอะไรบ้างครับ             |
 | โรคประจำตัว เช่น โรคอะไรบ้างหรอหมอ        |                                   |
 
-: OSCE conversation
+: OSCE conversation {tbl-colwidths="[75,25]"}
 
 ::: {#refs-@2016_harden.norman}
 :::
