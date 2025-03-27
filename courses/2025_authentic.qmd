@@ -1,7 +1,5 @@
 ---
 title: "Authentic Assessment - Foundation and application"
-auther: "Punyapat Maprapho, MD"
-institute: "Siriraj Health science Education Excellence center (SHEE)"
 format: 
   revealjs:
     multiplex: true
@@ -9,14 +7,13 @@ format:
     preview-links: auto
     footer: 'Assessment workshop For Clinical teacher'
     style: styles.css
-    csl: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/docs/site_libs/csl/apa
 editor: visual
 bibliography: /Users/prabprime/Documents/References/My Library.bib
 ---
 
 ## Authentic Assessment (AA)
 
-### 3 Main attributes of AA {.smaller}
+### 3 Main attributes of AA
 
 ::: incremental
 -   Formative
@@ -42,7 +39,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 
 3.Equivalence
 
-::: {.fragment .highlight-red fragment-index=1}
+::: {.fragment .highlight-red}
 4.Feasibility
 :::
 ::::
@@ -50,7 +47,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 :::: {.column width="50%"}
 5.Educational effect
 
-::: {.fragment .highlight-red fragment-index=1}
+::: {.fragment .highlight-red}
 6.Catalytic effect
 :::
 
@@ -65,8 +62,6 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 ## Authenticity vs Fidelity {auto-animate="true" auto-animate-easing="ease-in-out"}
 
 Higher Fidelity introduces Higher cognitive load
-
-I think one of <span class="fragment highlight-red" fragment-index=2> the most important </span> graph of all time is that this should include all the highlight we want to present.
 
 :::::: r-stack
 ::: {data-id="box1" style="background: #e83e8c; width: 350px; height: 350px; border-radius: 200px;"}
@@ -95,9 +90,6 @@ Low Cognitive Load
 
 : OSCE conversation
 
-::: {#refs-@2016_harden.norman}
-:::
-
 ::: footer
 @2016_harden.norman
 :::
@@ -106,20 +98,20 @@ Low Cognitive Load
 
 ### Does authentic assessment undermine authentic learning?
 
-::::: incremental
+::: incremental
+
 ::: callout-warning
 ### It undermines
-
 Only if students perceive assessment as **high-stake and judgmental**
 :::
 
-::: callout-tip
+::: callout-tips
 ### AA works, when
-
 -   Students could show undercentainty and vulnaribility
 -   Using WPA is authentic and acknowledge complexity of case
 :::
-:::::
+
+:::
 
 ::: footer
 @2024_hatala.ellaway,

@@ -3,17 +3,18 @@ project:
   output-dir: docs
 
 website:
-  title: "Health Science Education Resources - PrabPrime"
+  title: "MedEd-Resources by PrabPrime"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
-      - 2025_authentic.qmd
+      - href: 2025_authentic.qmd
+        text: slides
 
 format:
   html:
-    theme: lux
+    theme: cosmo
     mainfont: arial
     fontsize: 1.5rem
     monofont: courier new
