@@ -30,8 +30,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
     -   Related-competencies
 :::
 
-## Authentic form Good Assessment Perspectives
-
+## Authentic from Good Assessment Perspectives
 ### Where the authentic assessment shine in the Ottawa consensus of good assessment?
 
 ::::::: columns
