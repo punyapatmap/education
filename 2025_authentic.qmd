@@ -31,7 +31,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 
 ### Where the authentic assessment shine in the Ottawa consensus of good assessment?
 
-:::::: columns
+::::::: columns
 :::: {.column width="50%"}
 1.Validity
 
@@ -44,7 +44,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 :::
 ::::
 
-::: {.column width="50%"}
+:::: {.column width="50%"}
 5.Educational effect
 
 ::: {.fragment .highlight-red}
@@ -52,8 +52,8 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 :::
 
 7.Acceptability
-:::
-::::::
+::::
+:::::::
 
 ::: footer
 @2018_norcini.etal
@@ -91,7 +91,7 @@ Low Cognitive Load
 : OSCE conversation
 
 ::: footer
-@2016_harden.norman
+@2016_harden.norman; @csikszentmihalyi2014
 :::
 
 ## Authenticity? - WPBA
@@ -104,15 +104,13 @@ Low Cognitive Load
 Only if students perceive assessment as **high-stake and judgmental**
 :::
 
-. . .
-
 ### AA works, when
 
 -   Students could show undercentainty and vulnaribility
 -   Using WPA is authentic and acknowledge complexity of case
 
 ::: footer
-@2024_hatala.ellaway
+@2024_hatala.ellaway,
 :::
 
 ## Authenticity? - Projects

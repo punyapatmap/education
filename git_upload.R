@@ -12,3 +12,7 @@ https://quarto.org/docs/output-formats/html-themes.html
 
 #My inspiration github
 https://shklinkenberg.github.io/statistics-lectures/site/
+  
+  Hi! Thank you so much for visiting this Education site. This is a Quarto website.
+
+If you would like to create the To learn more about Quarto websites visit https://quarto.org/docs/websites.
