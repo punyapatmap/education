@@ -1,23 +1,29 @@
 ---
 title: "Authentic Assessment - Foundation and application"
-auther: "Punyapat Maprapho, MD"
+author: "Punyapat Maprapho, MD"
 institute: "Siriraj Health science Education Excellence center (SHEE)"
+number-sections: true
+crossref:
+  chapters: true
 format: 
   revealjs:
+    toc-title: "Outline"
     multiplex: true
     slide-number: true
     preview-links: auto
-    footer: 'Assessment workshop For Clinical teacher'
+    footer: "Assessment workshop For Clinical teacher"
     style: styles.css
     csl: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/docs/site_libs/csl/apa
     fig-cap-location: bottom
+    tbl-cap-location: top
+    
 editor: visual
 bibliography: /Users/prabprime/Documents/References/My Library.bib
 ---
 
-## Authentic Assessment (AA)
+# Authentic Assessment (AA)
 
-### 3 Main attributes of AA {.smaller}
+## 3 Main attributes of AA {.smaller}
 
 ::: incremental
 -   Formative
@@ -31,39 +37,41 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
     -   Related-competencies
 :::
 
-## Authentic from Good Assessment Perspectives
-### Where the authentic assessment shine in the Ottawa consensus of good assessment?
+# Authentic from Good Assessment Perspectives
 
-::::::: columns
-:::: {.column width="50%"}
+## Where the authentic assessment shine in the Ottawa consensus of good assessment?
+
+::::: columns
+::: {.column width="50%"}
 1.Validity
 
 2.Reliability
 
 3.Equivalence
 
-[4.Feasibility]{.fragment .highlight-red fragment-index=1}
+[4.Feasibility]{.fragment .highlight-red fragment-index="1"}
+:::
 
-::::
-
-:::: {.column width="50%"}
+::: {.column width="50%"}
 5.Educational effect
 
-[6.Catalytic effect]{.fragment .highlight-red fragment-index=1}
+[6.Catalytic effect]{.fragment .highlight-red fragment-index="1"}
 
 7.Acceptability
-::::
-:::::::
+:::
+:::::
 
 ::: footer
 @2018_norcini.etal
 :::
 
-## Authenticity vs Fidelity {auto-animate="true" auto-animate-easing="ease-in-out"}
+# Authenticity vs Fidelity {auto-animate="true" auto-animate-easing="ease-in-out"}
 
 Higher Fidelity introduces Higher cognitive load
+*Fidelity* {#def-fidelity}
+: Fidelity is use to refer to how authentic the simulation is to the real world setting
 
-I think one of [the most important graph]{.fragment .highlight-red fragment-index=1} of [all time is that this should include all the highlight we want to present]{.fragment .highlight-blue .bold}.
+I think one of [the most important graph]{.fragment .highlight-red fragment-index="1"} of [all time is that this should include all the highlight we want to present]{.fragment .highlight-blue .bold}.
 
 :::::: r-stack
 ::: {data-id="box1" style="background: #e83e8c; width: 350px; height: 350px; border-radius: 200px;"}
@@ -77,11 +85,11 @@ Low Cognitive Load
 :::
 ::::::
 
-## Authenticity? - Documentation
+# Authenticity? - Documentation
 
 ![](medical-transfer%20records.png){fig-align="center"}
 
-## Authenticity? - OSCE
+# Authenticity? - OSCE
 
 | Patient - คุณสมชาย แข็งแรง               | Doctor - นศพ.ปุญญภัทร               |
 |--------------------------------------|----------------------------------|
@@ -90,7 +98,7 @@ Low Cognitive Load
 | เวลาผมเดิน 30-40 นาที มันก็จะเริ่มเหนื่อย      | มีโรคประจำตัวอะไรบ้างครับ             |
 | โรคประจำตัว เช่น โรคอะไรบ้างหรอหมอ        |                                   |
 
-: OSCE conversation {tbl-colwidths="[75,25]"}
+: OSCE conversation {tbl-colwidths="\[75,25\]"}
 
 ::: {#refs-@2016_harden.norman}
 :::
@@ -99,19 +107,19 @@ Low Cognitive Load
 @2016_harden.norman
 :::
 
-## Authenticity? - WPBA
+# Authenticity? - WPBA
 
-### Does authentic assessment undermine authentic learning?
+## Does authentic assessment undermine authentic learning?
 
 ::::: incremental
 ::: callout-warning
-### It undermines
+## It undermines
 
 Only if students perceive assessment as **high-stake and judgmental**
 :::
 
 ::: callout-tip
-### AA works, when
+## AA works, when
 
 -   Students could show undercentainty and vulnaribility as shown in @fig-multi-assessment
 -   Using WPA is authentic and acknowledge complexity of case
@@ -122,19 +130,15 @@ Only if students perceive assessment as **high-stake and judgmental**
 @2024_hatala.ellaway,
 :::
 
-## Authenticity? - Projects
+# Authenticity? - Projects
 
-{{< video https://www.youtube.com/watch?v=DDQO_3R-q74
-  title="Should we do this?"
-  start="402"
-  width="100%" height="85%" >}}
-  
-## Check the table
+{{< video https://www.youtube.com/watch?v=DDQO_3R-q74 title="Should we do this?" start="402" width="100%" height="85%" >}}
+
+# Check the table
 
 See @tbl-simpson for details, especially @tbl-second.
 
-
-::: {#tbl-simpson layout-ncol=2}
+::: {#tbl-simpson layout-ncol="2"}
 | Col1 | Col2 | Col3 |
 |------|------|------|
 | A    | B    | C    |
@@ -154,38 +158,18 @@ See @tbl-simpson for details, especially @tbl-second.
 Main Caption
 :::
 
-## Check Reliability
+# Check Reliability
 
-![An illustration of various aspect of assessment](https://quarto.org/docs/authoring/elephant.png){#fig-multi-assessment fig-alt="Shine Bright" fig-align="center" width=50% }
+![An illustration of various aspect of assessment](https://quarto.org/docs/authoring/elephant.png){#fig-multi-assessment fig-alt="Shine Bright" fig-align="center" width="50%"}
 
 ::: footer
 @2018_norcini.etal
 :::
 
-## Check python work
-
-For a demonstration of a line plot, see @fig-line-plot.
-
-```{python}
-#| label: fig-line-plot
-#| fig-cap: "A line plot "
-
-import matplotlib.pyplot as plt
-plt.plot([1,23,2,4])
-plt.show()
-```
-
-## EKG graph
-
-```{python}
-import neurokit2 as nk  # Load the package
-
-simulated_ecg = nk.ecg_simulate(duration=8, sampling_rate=200, heart_rate=80)
-
-nk.signal_plot(simulated_ecg, sampling_rate=200)  # Visualize the signal
-```
-
-## References
+# References {.unnumbered}
 
 ::: {#refs}
+:::
+
+::: {#figs}
 :::

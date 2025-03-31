@@ -20,6 +20,17 @@ format:
     monofont: courier new
     css: styles.css
     toc: true
+    toc-depth: 0
+    toc-title: "Outline"
+    lof: true
+    lot: true
+    
+  pdf:
+    toc: true
+    toc-depth: 1
+    toc-title: "Outline"
+    lof: true
+    lot: true
 
 editor: visual
 
