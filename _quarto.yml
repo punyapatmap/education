@@ -15,22 +15,10 @@ website:
 format:
   html:
     theme: cosmo
-    mainfont: arial
-    fontsize: 1.5rem
-    monofont: courier new
-    css: styles.css
-    toc: true
-    toc-depth: 0
-    toc-title: "Outline"
-    lof: true
-    lot: true
-    
-  pdf:
-    toc: true
-    toc-depth: 1
-    toc-title: "Outline"
-    lof: true
-    lot: true
+    # mainfont: arial
+    # fontsize: 1.5rem
+    # monofont: courier new
+    # css: styles.css
 
 editor: visual
 

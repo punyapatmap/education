@@ -82,7 +82,7 @@ Low Cognitive Load
 ## Authenticity? - OSCE
 
 | Patient - คุณสมชาย แข็งแรง               | Doctor - นศพ.ปุญญภัทร               |
-|--------------------------------------|----------------------------------|
+|----------------------------------------|-----------------------------------|
 |                                        | สวัสดีครับ คุณสมชาย ผม นศพ.ปุญญภัทร ปี 6 |
 | สวัสดีครับหมอ ผมหายใจเหนื่อยมา 2-3 วันแล้วครับ | อาการเหนื่อยเป็นยังไงหรอครับ           |
 | เวลาผมเดิน 30-40 นาที มันก็จะเริ่มเหนื่อย      | มีโรคประจำตัวอะไรบ้างครับ             |
@@ -98,20 +98,20 @@ Low Cognitive Load
 
 ### Does authentic assessment undermine authentic learning?
 
-::: incremental
-
+::::: incremental
 ::: callout-warning
 ### It undermines
+
 Only if students perceive assessment as **high-stake and judgmental**
 :::
 
 ::: callout-tips
 ### AA works, when
+
 -   Students could show undercentainty and vulnaribility
 -   Using WPA is authentic and acknowledge complexity of case
 :::
-
-:::
+:::::
 
 ::: footer
 @2024_hatala.ellaway,
