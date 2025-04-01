@@ -1,0 +1,133 @@
+---
+title: "Authentic Assessment - Foundation and application"
+format: 
+  revealjs:
+    multiplex: true
+    slide-number: true
+    preview-links: auto
+    footer: 'Assessment workshop For Clinical teacher'
+    style: styles.css
+editor: visual
+bibliography: /Users/prabprime/Documents/References/My Library.bib
+---
+
+## Authentic Assessment (AA)
+
+### 3 Main attributes of AA
+
+::: incremental
+-   Formative
+
+-   Longitudinal
+
+-   Authenticity
+
+    -   Real-world situation
+
+    -   Related-competencies
+:::
+
+## Authentic form Good Assessment Perspectives
+
+### Where the authentic assessment shine in the Ottawa consensus of good assessment?
+
+::::::: columns
+:::: {.column width="50%"}
+1.Validity
+
+2.Reliability
+
+3.Equivalence
+
+::: {.fragment .highlight-red}
+4.Feasibility
+:::
+::::
+
+:::: {.column width="50%"}
+5.Educational effect
+
+::: {.fragment .highlight-red}
+6.Catalytic effect
+:::
+
+7.Acceptability
+::::
+:::::::
+
+::: footer
+@2018_norcini.etal
+:::
+
+## Authenticity vs Fidelity {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Higher Fidelity introduces Higher cognitive load
+
+:::::: r-stack
+::: {data-id="box1" style="background: #e83e8c; width: 350px; height: 350px; border-radius: 200px;"}
+:::
+
+::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
+:::
+
+::: {data-id="box3" style="background: #2780e3; width: 150px; height: 150px; border-radius: 200px;"}
+Low Cognitive Load
+:::
+::::::
+
+## Authenticity? - Documentation
+
+![](medical-transfer%20records.png){fig-align="center"}
+
+## Authenticity? - OSCE
+
+| Patient - คุณสมชาย แข็งแรง               | Doctor - นศพ.ปุญญภัทร               |
+|----------------------------------------|-----------------------------------|
+|                                        | สวัสดีครับ คุณสมชาย ผม นศพ.ปุญญภัทร ปี 6 |
+| สวัสดีครับหมอ ผมหายใจเหนื่อยมา 2-3 วันแล้วครับ | อาการเหนื่อยเป็นยังไงหรอครับ           |
+| เวลาผมเดิน 30-40 นาที มันก็จะเริ่มเหนื่อย      | มีโรคประจำตัวอะไรบ้างครับ             |
+| โรคประจำตัว เช่น โรคอะไรบ้างหรอหมอ        |                                   |
+
+: OSCE conversation
+
+::: footer
+@2016_harden.norman
+:::
+
+## Authenticity? - WPBA
+
+### Does authentic assessment undermine authentic learning?
+
+::::: incremental
+::: callout-warning
+### It undermines
+
+Only if students perceive assessment as **high-stake and judgmental**
+:::
+
+::: callout-tips
+### AA works, when
+
+-   Students could show undercentainty and vulnaribility
+-   Using WPA is authentic and acknowledge complexity of case
+:::
+:::::
+
+::: footer
+@2024_hatala.ellaway,
+:::
+
+## Authenticity? - Projects
+
+## Check Reliability
+
+![](IMG-2583rd24193-1.png){fig-align="center"}
+
+::: footer
+@2018_norcini.etal
+:::
+
+## References
+
+::: {#refs}
+:::

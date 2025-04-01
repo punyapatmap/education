@@ -1,17 +1,43 @@
 project:
   type: website
-  output-dir: docs
-
+  output-dir: sites
+  render:
+    - index.qmd
+    - courses/sharing/2024-2025/sharing.qmd
+    - courses/tailor/2023-2024/tailor.qmd
+    # - courses/workshop/2023-2024/workshop.qmd
+    # - courses/shee/2023-2024/shee.qmd
+    
 website:
-  title: "MedEd-Resources by PrabPrime"
+  title: "P-MAPR"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - href: 2025_authentic.qmd
-        text: slides
-
+      - href: about.qmd
+        text: About
+      - text: Slides
+        menu:
+          - sidebar:shr
+          - sidebar:wsh
+      
+  sidebar:
+    - id: shr
+      title: "SHEE Sharing"
+      style: "docked"
+      # foreground: '#BC0031'
+      background: light
+      collapse-level: 2
+      contents:
+        - courses/sharing/2024-2025/sharing.qmd
+    - id: wsh
+      title: "Workshop Slides"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents:
+        - courses/2025_authentic.qmd
+        
 format:
   html:
     theme: cosmo

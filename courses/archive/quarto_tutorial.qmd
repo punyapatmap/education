@@ -1,0 +1,170 @@
+---
+title: "For the Gen-Z generation"
+author: "Punyapat Maprapho, MD"
+institute: "Siriraj Health science Education Excellence center (SHEE)"
+number-sections: true
+format: 
+  revealjs:
+    toc-title: "Outline"
+    multiplex: true
+    slide-number: true
+    preview-links: auto
+    footer: "Assessment workshop For Clinical teacher"
+    style: styles.css
+    csl: https://www.zotero.org/styles/apa
+    fig-cap-location: bottom
+    tbl-cap-location: top
+editor: visual
+bibliography: https://raw.githubusercontent.com/punyapatmap/bibliography/refs/heads/main/My%20Library.bib
+---
+
+# Authentic Assessment (AA)
+
+## 3 Main attributes of AA {.smaller}
+
+::: incremental
+-   Formative
+
+-   Longitudinal
+
+-   Authenticity
+
+    -   Real-world situation
+
+    -   Related-competencies
+:::
+
+# Authentic from Good Assessment Perspectives
+
+## Where the authentic assessment shine in the Ottawa consensus of good assessment?
+
+::::: columns
+::: {.column width="50%"}
+1.Validity
+
+2.Reliability
+
+3.Equivalence
+
+[4.Feasibility]{.fragment .highlight-red fragment-index="1"}
+:::
+
+::: {.column width="50%"}
+5.Educational effect
+
+[6.Catalytic effect]{.fragment .highlight-red fragment-index="1"}
+
+7.Acceptability
+:::
+:::::
+
+::: footer
+@2018_norcini.etal
+:::
+
+# Authenticity vs Fidelity {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Higher Fidelity introduces Higher cognitive load *Fidelity* {#def-fidelity} : Fidelity is use to refer to how authentic the simulation is to the real world setting
+
+I think one of [the most important graph]{.fragment .highlight-red fragment-index="1"} of [all time is that this should include all the highlight we want to present]{.fragment .highlight-blue .bold}.
+
+:::::: r-stack
+::: {data-id="box1" style="background: #e83e8c; width: 350px; height: 350px; border-radius: 200px;"}
+:::
+
+::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
+:::
+
+::: {data-id="box3" style="background: #2780e3; width: 150px; height: 150px; border-radius: 200px;"}
+Low Cognitive Load
+:::
+::::::
+
+# Authenticity? - Documentation
+
+![](!%5B%5D(https://drive.google.com/uc?export=view&id=1e9YFIx7u37dmpOoBYTMr_eHVyJgwPzCw)){fig-align="center"}
+
+# Authenticity? - OSCE
+
+| Patient - คุณสมชาย แข็งแรง               | Doctor - นศพ.ปุญญภัทร               |
+|----------------------------------------|-----------------------------------|
+|                                        | สวัสดีครับ คุณสมชาย ผม นศพ.ปุญญภัทร ปี 6 |
+| สวัสดีครับหมอ ผมหายใจเหนื่อยมา 2-3 วันแล้วครับ | อาการเหนื่อยเป็นยังไงหรอครับ           |
+| เวลาผมเดิน 30-40 นาที มันก็จะเริ่มเหนื่อย      | มีโรคประจำตัวอะไรบ้างครับ             |
+| โรคประจำตัว เช่น โรคอะไรบ้างหรอหมอ        |                                   |
+
+: OSCE conversation {tbl-colwidths="\[75,25\]"}
+
+::: {#refs-@2016_harden.norman}
+:::
+
+::: footer
+@2016_harden.norman
+:::
+
+# Authenticity? - WPBA
+
+## Does authentic assessment undermine authentic learning?
+
+::::: incremental
+::: callout-warning
+## It undermines
+
+Only if students perceive assessment as **high-stake and judgmental**
+:::
+
+::: callout-tip
+## AA works, when
+
+-   Students could show undercentainty and vulnaribility as shown in @fig-multi-assessment
+-   Using WPA is authentic and acknowledge complexity of case
+:::
+:::::
+
+::: footer
+@2024_hatala.ellaway,
+:::
+
+# Authenticity? - Projects
+
+{{< video https://www.youtube.com/watch?v=DDQO_3R-q74 title="Should we do this?" start="402" width="100%" height="85%" >}}
+
+# Check the table
+
+See @tbl-simpson for details, especially @tbl-second.
+
+::: {#tbl-simpson layout-ncol="2"}
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| A    | B    | C    |
+| E    | F    | G    |
+| A    | G    | G    |
+
+: First Table {#tbl-first}
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| A    | B    | C    |
+| E    | F    | G    |
+| A    | G    | G    |
+
+: Second Table {#tbl-second}
+
+Main Caption
+:::
+
+# Check Reliability
+
+![An illustration of various aspect of assessment](https://quarto.org/docs/authoring/elephant.png){#fig-multi-assessment fig-alt="Shine Bright" fig-align="center" width="50%"}
+
+::: footer
+@2018_norcini.etal
+:::
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+::: {#figs}
+:::
