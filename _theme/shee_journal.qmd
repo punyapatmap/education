@@ -11,8 +11,6 @@ publication-info: |
   The Dean of the Department of Chemistry. \
   Purview College, 17 Earlmeyer D, Exampleville, TN 59341. \
   <mailto:newsletter@chem.purview.edu>
-format:
-  dept-news-typst: default
 ---
 
 # The Sixtus Award goes to Purview
@@ -28,15 +26,15 @@ This achievement is a testament to the hard work, dedication, and passion of our
 
 The award will be presented to our department in a formal ceremony that will take place on May 15th, 2023. We encourage all members of our department to join us in celebrating this achievement.
 
-::: {.article}
+::: article
 ## Guest lecture from Dr. Elizabeth Lee
-  
+
 Elizabeth Lee, a leading researcher in the field of biochemistry, spoke about her recent work on the development of new cancer treatments using small molecule inhibitors, and the lecture was very well-attended by both students and faculty.
 
-In case you missed it, there's a recording on [EDGARP](http://purview.edu/lts/2023-lee")
+In case you missed it, there's a recording on [EDGARP](http://purview.edu/lts/2023-lee%22)
 :::
 
-::: {.article}
+::: article
 ## Safety first
 
 Next Tuesday, there will be a Lab Safety Training.
@@ -46,7 +44,6 @@ These trainings are crucial for ensuring that all members of the department are 
 
 ## Another Success
 
-Aliquam sit amet lectus ut libero congue viverra. Morbi quis diam ullamcorper, iaculis ex non, fermentum mauris. Aliquam consectetur vitae purus vitae laoreet. Sed elementum ligula et mauris eleifend dignissim. 
-อยากรู้ว่าเธอจะทำอย่างไร ถ้า
+Aliquam sit amet lectus ut libero congue viverra. Morbi quis diam ullamcorper, iaculis ex non, fermentum mauris. Aliquam consectetur vitae purus vitae laoreet. Sed elementum ligula et mauris eleifend dignissim. อยากรู้ว่าเธอจะทำอย่างไร ถ้า
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, dolor molestie viverra interdum, nibh urna dignissim nisi, et rhoncus libero nibh a nulla. Etiam ac augue vel leo vehicula finibus at non tortor. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, dolor molestie viverra interdum, nibh urna dignissim nisi, et rhoncus libero nibh a nulla. Etiam ac augue vel leo vehicula finibus at non tortor.

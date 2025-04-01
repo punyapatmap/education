@@ -18,7 +18,7 @@ format:
     # mainfont: arial
     # fontsize: 1.5rem
     # monofont: courier new
-    # css: styles.css
+    css: styles.css
 
 editor: visual
 
