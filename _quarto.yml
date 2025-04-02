@@ -3,8 +3,9 @@ project:
   output-dir: docs
   render:
     - index.qmd
-    - courses/sharing/srg-2024-2025/sharing.qmd
-    - courses/tailor/trl-2024-2025/tailor.qmd
+    - about.qmd
+    - courses/sharing/main_sharing.qmd
+    - courses/tailor/main_tailor.qmd
     - courses/workshop/wsh-2024-2025/workshop.qmd
     # - courses/shee/2023-2024/shee.qmd
     
@@ -30,9 +31,9 @@ website:
       background: light
       collapse-level: 2
       contents:
-        - courses/sharing/srg-2024-2025/sharing.qmd
+        - courses/sharing/main_sharing.qmd
     - id: tlr
-      title: "Workshop Slides"
+      title: "Tailor Slides"
       style: "docked"
       background: light
       collapse-level: 2
@@ -44,7 +45,7 @@ website:
       background: light
       collapse-level: 2
       contents:
-        - courses/tailor/wsh-2024-2025/workshop.qmd
+        - courses/workshop/wsh-2024-2025/workshop.qmd
         
 format:
   html:

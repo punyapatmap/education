@@ -46,7 +46,7 @@ library('kableExtra')
 
 # Print table with kable as set in YAML
 knitr::kable(dplyr::arrange(lecture.list, desc(Date)), 
-             escape = F ) %>% 
+             escape = F, format = "html" ) %>% 
   kable_styling(full_width = T)
 
 ```

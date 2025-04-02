@@ -1,9 +1,30 @@
 ---
-title: "About"
+title: "Prab Punyapat Maprapho"
+about:
+  template: trestles
+  image: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/_about/IMG_9039Jn.jpg
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com
+    - icon: github
+      text: Github
+      href: https://github.com
 ---
 
-About this site
+## tl;dr
+Punyapat Maprapho is Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending time taking care of patients as another side husle as primary care physician.
 
-```{r}
-1 + 1
-```
+## Education
+
+Harvard Medical School, Harvard University | Boston, MA
+MMSc in Medical Education | Sep 2023 - June 2025
+
+Mahidol University | Bangkok, Thailand
+M.D. in Medicine | May 2013 - May 2019
+
+## Experience
+
+Faculty of Medicine Siriraj Hospital, Mahidol University | Educator and Learning Analyst | April 2018 - present
+
+PreceptorAI at Cariva | Learning Analyst | Sep 2022 - present
