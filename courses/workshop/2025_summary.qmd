@@ -36,7 +36,7 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 
 ## Consensus of Good Assessment
 
-1.  Validity
+[1.  Validity]{.fragment style="font-weight:bold;background-color:#ccddeb;"}
 
 2.  Reliability
 
@@ -54,13 +54,28 @@ bibliography: /Users/prabprime/Documents/References/My Library.bib
 
 ## Posttest Examination
 
-![](qr_code-6.png){width="500"}
+```{r tbl-planets, echo=FALSE}
+# Table of astronomical objects
+#| label: tbl-planets
+#| tbl-cap: Astronomical object
+library(knitr)
+
+table <- data.frame(
+  `Astronomical object` = c("Sun", "Earth", "Moon", "Mars"),
+  `R (km)` = c("696,000", "6,371", "1,737", "3,390"),
+  `mass (kg)` = c(1.989e30, 5.972e24, 7.34e22, 6.39e23)
+)
+
+kable(table, caption = "Astronomical object")
+```
 
 ## Reflection time
 
--   What have we learnt?
++ What is happening?
 
--   
++ How what happening resonate with me?
+
++ How should I improve?
 
 ## Bullets
 
@@ -78,13 +93,14 @@ When you click the **Render** button a document will be generated that includes:
 
 $$
 \alpha = \frac{n}{n - 1} \left( 1 - \frac{ \sum \sigma_{x_i}^2 }{ \sigma_x^2 } \right)
-$$
+$$ {#eq-cronbach-alpha}
 
--   n = number of items
+-   $n$ = number of items
 -   $\sigma_{x_i}$ = variance of the item
 -   $\sigma_x$ = variance of the test
 
 ## 
+
 | Cronbach’s alpha (α) | Qualitative Descriptor |
 |----------------------|------------------------|
 | .95–1.00             | Excellent              |
@@ -93,6 +109,7 @@ $$
 | .70–.79              | Acceptable             |
 | .60–.69              | Questionable           |
 | .00–.59              | Unacceptable           |
+as use in @eq-cronbach-alpha
 
 ## Improving Reliability
 

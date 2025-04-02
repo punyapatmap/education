@@ -3,9 +3,9 @@ project:
   output-dir: docs
   render:
     - index.qmd
-    - courses/sharing/2024-2025/sharing.qmd
+    - courses/sharing/srg-2024-2025/sharing.qmd
     - courses/tailor/trl-2024-2025/tailor.qmd
-    # - courses/workshop/2023-2024/workshop.qmd
+    - courses/workshop/wsh-2024-2025/workshop.qmd
     # - courses/shee/2023-2024/shee.qmd
     
 website:
@@ -20,6 +20,7 @@ website:
         menu:
           - sidebar:shr
           - sidebar:tlr
+          - sidebar:wsh
       
   sidebar:
     - id: shr
@@ -29,7 +30,7 @@ website:
       background: light
       collapse-level: 2
       contents:
-        - courses/sharing/2024-2025/sharing.qmd
+        - courses/sharing/srg-2024-2025/sharing.qmd
     - id: tlr
       title: "Workshop Slides"
       style: "docked"
@@ -37,6 +38,13 @@ website:
       collapse-level: 2
       contents:
         - courses/tailor/trl-2024-2025/tailor.qmd
+    - id: wsh
+      title: "Workshop Slides"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents:
+        - courses/tailor/wsh-2024-2025/workshop.qmd
         
 format:
   html:
@@ -48,5 +56,9 @@ format:
     linkcolor: '#BC0031'
     css: styles.css
 
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  
 editor: visual
 

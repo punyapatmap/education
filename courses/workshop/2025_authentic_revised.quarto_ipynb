@@ -14,10 +14,8 @@
         "    slide-number: true\n",
         "    preview-links: auto\n",
         "    footer: 'Assessment workshop For Clinical teacher'\n",
-        "    style: styles.css\n",
         "    csl: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/docs/site_libs/csl/apa\n",
         "    fig-cap-location: bottom\n",
-        "    reference-location: footer\n",
         "editor: visual\n",
         "bibliography: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/docs/site_libs/zot_lib.bib # https://raw.githubusercontent.com/punyapatmap/contents/refs/heads/main/My%20Library.bib\n",
         "---\n",
@@ -172,7 +170,7 @@
         "\n",
         "For a demonstration of a line plot, see @fig-line-plot.\n"
       ],
-      "id": "b7db1e27"
+      "id": "d3244799"
     },
     {
       "cell_type": "code",
@@ -200,7 +198,7 @@
         "::: {#refs}\n",
         ":::"
       ],
-      "id": "315ef68a"
+      "id": "5b5e14b9"
     }
   ],
   "metadata": {
