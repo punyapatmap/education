@@ -24,5 +24,6 @@ We also studied the validity by comparing the mean ability ratings of children i
 <!-- Footer insert below -->
 
 # References
+
 ::: {#refs}
 :::

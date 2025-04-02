@@ -1,6 +1,6 @@
 ---
 title: "Tailor Slides 2024-2025"
-subtitle: "Semester 1"
+subtitle: "Sharing is Caring"
 author: "Prab Maprapho"
 date: today
 ---
@@ -9,10 +9,10 @@ On this site you can find my MedEd lectures and materials for 2024-2025 semester
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library("base")
+
 course.path = "courses/sharing/2024-2025/"
 
 files <- list.files(full.names = F, pattern = "\\.qmd", recursive = T)
-
 files <- files[grep("sharing.qmd", files, invert = TRUE)]
 
 lectures = data.frame()
