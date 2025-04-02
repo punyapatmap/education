@@ -4,10 +4,13 @@ subtitle: "How Should We Teach the Next Generation of Medical Students?"
 date: "4 April 2025"
 date-format: long # or date-format: "MMM D, YYYY"
 format: 
+  # html: default
   revealjs:
-    slide-number: true
-    preview-links: auto
-    footer: 'Generation Engagement'
+    default: true
+    # multiplex: true
+    # slide-number: true
+    # preview-links: auto
+    # footer: 'Generation Engagement'
     output-ext: slide.html
   
 editor: visual

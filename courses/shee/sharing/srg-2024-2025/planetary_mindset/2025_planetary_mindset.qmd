@@ -4,15 +4,16 @@ subtitle: "How Should We Teach the Next Generation of Medical Students?"
 date: "2 April 2025"
 date-format: long # or date-format: "MMM D, YYYY"
 format:
-  html: default
   revealjs:
     # theme: simple
     multiplex: true
     slide-number: true
     preview-links: auto
     footer: 'SHEE Sharing-Planetary Mindset'
-    style: ~/Documents/Work/Project/quarto_presentation/education/styles.css
     output-ext: slide.html
+  html:
+    output-ext: page.html
+
 editor: visual
 bibliography: /Users/prabprime/Documents/References/My Library.bib
 ---

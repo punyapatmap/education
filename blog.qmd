@@ -1,0 +1,6 @@
+---
+title: "Listing Example"
+listing: default
+contents:
+    - "education/ed-op/*.qmd"
+---

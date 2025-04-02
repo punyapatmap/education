@@ -4,6 +4,7 @@ project:
   render:
     - index.qmd
     - about.qmd
+    - blog.qmd
     - courses/shee/sharing/main_sharing.qmd
     - courses/shee/tailor/main_tailor.qmd
     # - courses/shee/workshop/main_workshop.qmd
@@ -19,6 +20,8 @@ website:
         text: Home
       - href: about.qmd
         text: About
+      - href: blog.qmd
+        text: Ed Blog
       - text: Slides
         menu:
           - sidebar:shr
@@ -53,13 +56,22 @@ format:
   html:
     theme: cosmo
     toc: true
+    toc-depth: 2
+    toc-location: left
+    linkcolor: '#BC0031'
     df-print: kable
     smooth-scroll: true
     link-external-newwindow: true
-    linkcolor: '#BC0031'
     css: styles.css
   revealjs:
-    output-ext: "slide.html"
+    smaller: false
+    linkcolor: '#BC0031'
+    transition: slide
+    background-transition: fade
+    theme: white
+    slide-number: true
+    touch: true
+    output-ext: slide.html
 
 html-math-method:
   method: mathjax

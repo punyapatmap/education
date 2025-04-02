@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Prab Punyapat Maprapho – P-MAPR</title>
+<title>Listing Example – P-MAPR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,9 +30,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -65,13 +68,71 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -93,11 +154,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Ed Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -125,61 +186,162 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
-  <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="about.slide.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="blog.slide.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="_about/IMG_9039Jn.jpg" class="about-image
-  rounded " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prab Punyapat Maprapho</h1>
+<h1 class="title">Listing Example</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://twitter.com/prabprime" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">twitter</span>
-  </a>
-  <a href="https://github.com/punyapatmap" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1743613200000" data-listing-file-modified-sort="1743594604463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="429">
+<div class="thumbnail">
+<p><a href="./index.html" class="no-external"></a></p><a href="./index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./index.html" class="no-external"></a></p>
 </div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-
-<section id="introduction" class="level2">
-<h2 data-anchor-id="introduction">Introduction</h2>
-<p>Punyapat Maprapho is Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending time taking care of patients as another side husle as primary care physician.</p>
-</section>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p>Harvard Medical School, Harvard University | Boston, MA MMSc in Medical Education | Sep 2023 - June 2025</p>
-<p>Mahidol University | Bangkok, Thailand M.D.&nbsp;in Medicine | May 2013 - May 2019</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p>Faculty of Medicine Siriraj Hospital, Mahidol University | Educator and Learning Analyst | April 2018 - present</p>
-<p>PreceptorAI at Cariva | Learning Analyst | Sep 2022 - present</p>
-
-
-</section>
-</main></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./index.html" class="no-external">Med-EdResources Hub</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./index.html" class="no-external"></a>
 </div>
- <!-- /main -->
+<div class="listing-description">
+<a href="./index.html" class="no-external">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+<script>
+let particles = [];
+const num = 1000;
+
+const noiseScale = 0.01/2;
+
+function setup() {
+  var canvas = createCanvas(windowWidth, windowHeight);
+ …</script><div id="canvasForHTML"></div></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./index.html" class="no-external">
+<div class="listing-date">
+Apr 3, 2025
+</div>
+<div class="listing-author">
+Prab Maprapho
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1743620094188" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
+<div class="thumbnail">
+<p><a href="./about.html" class="no-external"></a></p><a href="./about.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./about.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./about.html" class="no-external">Prab Punyapat Maprapho</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./about.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./about.html" class="no-external">Punyapat Maprapho is Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./about.html" class="no-external"></a></p><a href="./about.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1743613200000" data-listing-file-modified-sort="1743622442308" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
+<div class="thumbnail">
+<p><a href="./courses/shee/sharing/main_sharing.html" class="no-external"></a></p><a href="./courses/shee/sharing/main_sharing.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./courses/shee/sharing/main_sharing.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./courses/shee/sharing/main_sharing.html" class="no-external">SHEE Sharing Slides 2024-2025</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./courses/shee/sharing/main_sharing.html" class="no-external">Sharing is Caring</a>
+</div>
+<div class="listing-description">
+<a href="./courses/shee/sharing/main_sharing.html" class="no-external">On this site you can find my MedEd lectures and materials for 2024-2025 semester.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./courses/shee/sharing/main_sharing.html" class="no-external">
+<div class="listing-date">
+Apr 3, 2025
+</div>
+<div class="listing-author">
+Prab Maprapho
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1743613200000" data-listing-file-modified-sort="1743623473231" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
+<div class="thumbnail">
+<p><a href="./courses/shee/tailor/main_tailor.html" class="no-external"></a></p><a href="./courses/shee/tailor/main_tailor.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./courses/shee/tailor/main_tailor.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./courses/shee/tailor/main_tailor.html" class="no-external">Tailor-Made Course Slides 2024-2025</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./courses/shee/tailor/main_tailor.html" class="no-external">Right just for you!</a>
+</div>
+<div class="listing-description">
+<a href="./courses/shee/tailor/main_tailor.html" class="no-external">On this site you can find my MedEd lectures and materials for 2024-2025 semester.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./courses/shee/tailor/main_tailor.html" class="no-external">
+<div class="listing-date">
+Apr 3, 2025
+</div>
+<div class="listing-author">
+Prab Maprapho
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -200,6 +362,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
