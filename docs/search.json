@@ -826,9 +826,12 @@
   {
     "objectID": "courses/sharing/2024-2025/sharing.html",
     "href": "courses/sharing/2024-2025/sharing.html",
-    "title": "Tailor Slides 2024-2025",
+    "title": "SHEE Sharing Slides 2024-2025",
     "section": "",
-    "text": "On this site you can find my MedEd lectures and materials for 2024-2025 semester.\n\n\n\n\n\nDate\nLecture\nHandout\nSlides\n\n\n\n\n2024-09-23\nAlternatives to NHST\n&lt;a href=\"https://punyapatmap.github.io/education/courses/sharing/2024-2025/reasoning/alternatives_nhst.html\" target=\"_blank\" class=\"external\"&gt;link&lt;/a&gt;\n&lt;a href=\"https://punyapatmap.github.io/education/courses/sharing/2024-2025/reasoning/alternatives_nhst.slide.html\" target=\"_blank\" class=\"external\"&gt;link&lt;/a&gt;"
+    "text": "On this site you can find my MedEd lectures and materials for 2024-2025 semester.\n\n\n\n\n\nDate\nLecture\nHandout\nSlides\n\n\n\n\n2025-04-02\nPlanetary Mindset in Medical Education\n[link](h\ntps://p\n\n\n2024-09-23\nAlternatives to NHST\n[link](h\ntps://p",
+    "crumbs": [
+      "SHEE Sharing Slides 2024-2025"
+    ]
   },
   {
     "objectID": "courses/sharing/2024-2025/reasoning/alternatives_nhst.html",
@@ -843,5 +846,15 @@
     "title": "Alternatives to NHST",
     "section": "",
     "text": "We also studied the validity by comparing the mean ability ratings of children in different grades. We expected a positive relation between grade and ability. Figure 5 shows the average ability rating for each grade and domain. As expected, children in older age groups had a higher rating than children in younger age groups. In all four domains, there is an overall significant effect of grade: addition \\(F(5,1456)=1091.4,p&lt;.01,\\omega^2=.78\\), subtraction \\(F(5,1363)=780.5,p&lt;.01,\\omega^2=.74\\), multiplication \\(F(5,1215)=409.6,p&lt;.01,\\omega^2=.62\\), and \\(F(5,973)=223.31,p&lt;.01,\\omega^2=.53\\) for division. Levene’s tests show differences in variances for the domains multiplication and division. However, the non-parametric Kruskal-Wallis tests also show significant differences for these domains: \\(\\chi^2(5)=753.28,p&lt;.01\\) for multiplication and \\(\\chi^2(5)=505.17,p&lt;.01\\) for division. For all domains, post hoc analyses show significant differences between all grades, except for the differences between grades five and six [@KLINKENBERG20111813]."
+  },
+  {
+    "objectID": "courses/tailor/trl-2024-2025/tailor.html",
+    "href": "courses/tailor/trl-2024-2025/tailor.html",
+    "title": "Tailor-Made Course Slides 2024-2025",
+    "section": "",
+    "text": "On this site you can find my MedEd lectures and materials for 2024-2025 semester.\n\n\n\n\n\nDate\nLecture\nHandout\nSlides\n\n\n\n\nNA\nTailor-Made Course Slides 2024-2025\n&lt;a href=\"https://punyapatmap.github.io/education/courses/tailor/trl-2024-2025/tailor.html\" target=\"_blank\" class=\"external\"&gt;link&lt;/a&gt;\n&lt;a href=\"https://punyapatmap.github.io/education/courses/tailor/trl-2024-2025/tailor.slide.html\" target=\"_blank\" class=\"external\"&gt;link&lt;/a&gt;",
+    "crumbs": [
+      "Tailor-Made Course Slides 2024-2025"
+    ]
   }
 ]

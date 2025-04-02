@@ -1,10 +1,10 @@
 project:
   type: website
-  output-dir: sites
+  output-dir: docs
   render:
     - index.qmd
     - courses/sharing/2024-2025/sharing.qmd
-    - courses/tailor/2023-2024/tailor.qmd
+    - courses/tailor/trl-2024-2025/tailor.qmd
     # - courses/workshop/2023-2024/workshop.qmd
     # - courses/shee/2023-2024/shee.qmd
     
@@ -19,7 +19,7 @@ website:
       - text: Slides
         menu:
           - sidebar:shr
-          - sidebar:wsh
+          - sidebar:tlr
       
   sidebar:
     - id: shr
@@ -30,20 +30,22 @@ website:
       collapse-level: 2
       contents:
         - courses/sharing/2024-2025/sharing.qmd
-    - id: wsh
+    - id: tlr
       title: "Workshop Slides"
       style: "docked"
       background: light
       collapse-level: 2
       contents:
-        - courses/2025_authentic.qmd
+        - courses/tailor/trl-2024-2025/tailor.qmd
         
 format:
   html:
     theme: cosmo
-    # mainfont: arial
-    # fontsize: 1.5rem
-    # monofont: courier new
+    toc: true
+    df-print: kable
+    smooth-scroll: true
+    link-external-newwindow: true
+    linkcolor: '#BC0031'
     css: styles.css
 
 editor: visual

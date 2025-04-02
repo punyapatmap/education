@@ -46,6 +46,38 @@ function draw() {
   }
 }
 
+<!-- function draw() { -->
+<!--   background(255, 10); -->
+
+<!--   for(let i = 0; i < num; i++) { -->
+<!--     let p = particles[i]; -->
+
+<!--     // Compute noise -->
+<!--     let n = noise(p.x * noiseScale, p.y * noiseScale, frameCount * noiseScale * noiseScale); -->
+<!--     let a = TAU * n; -->
+
+<!--     // ✨ Color gradient from red to purple -->
+<!--     let c1 = color(255, 0, 0);     // Red -->
+<!--     let c2 = color(128, 0, 128);   // Purple -->
+<!--     let t = map(i, 0, num, 0, 1);  // Gradient factor per particle index -->
+<!--     stroke(lerpColor(c1, c2, t)); -->
+
+<!--     // Draw the point -->
+<!--     point(p.x, p.y); -->
+
+<!--     // Move particle -->
+<!--     p.x += cos(a); -->
+<!--     p.y += sin(a); -->
+
+<!--     // Reset if off screen -->
+<!--     if (!onScreen(p) && frameCount < 1000) { -->
+<!--       p.x = random(width); -->
+<!--       p.y = random(height); -->
+<!--     } -->
+<!--   } -->
+<!-- } -->
+
+
 function mouseReleased() {
   noiseSeed(millis());
 }

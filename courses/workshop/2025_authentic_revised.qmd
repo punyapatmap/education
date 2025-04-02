@@ -8,11 +8,10 @@ format:
     slide-number: true
     preview-links: auto
     footer: 'Assessment workshop For Clinical teacher'
-    style: styles.css
     csl: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/docs/site_libs/csl/apa
     fig-cap-location: bottom
 editor: visual
-bibliography: https://raw.githubusercontent.com/punyapatmap/contents/refs/heads/main/My%20Library.bib
+bibliography: /Users/prabprime/Documents/Work/Project/quarto_presentation/education/docs/site_libs/zot_lib.bib # https://raw.githubusercontent.com/punyapatmap/contents/refs/heads/main/My%20Library.bib
 ---
 
 ## Authentic Assessment (AA)
