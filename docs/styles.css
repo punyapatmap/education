@@ -8,6 +8,11 @@
   filter: none
 }
 
+.reveal .slides section .fragment.highlight {
+  font-weight: bold;
+  background-color:#ccddeb;"
+}
+
 table {
   width: 80%;
   margin: 2em auto;

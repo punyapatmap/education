@@ -1,0 +1,15 @@
+
+```{r tbl-planets, echo=FALSE}
+# Table of astronomical objects
+#| label: tbl-planets
+#| tbl-cap: Astronomical object
+library(knitr)
+
+table <- data.frame(
+  `Astronomical object` = c("Sun", "Earth", "Moon", "Mars"),
+  `R (km)` = c("696,000", "6,371", "1,737", "3,390"),
+  `mass (kg)` = c(1.989e30, 5.972e24, 7.34e22, 6.39e23)
+)
+
+kable(table, caption = "Astronomical object")
+```

@@ -1,0 +1,32 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+
+<!-- Outer dashed circle -->
+
+<circle cx="300" cy="300" r="280" stroke="black" stroke-dasharray="5,5" fill="none" />
+
+<!-- Outer labels -->
+
+<text x="300" y="40" font-size="18" text-anchor="middle" fill="#ccc">Course Structure & Interface</text> <text x="510" y="300" font-size="20" text-anchor="middle" fill="black" font-weight="bold" transform="rotate(90 510,300)">Assessments & Feedback</text> <text x="440" y="500" font-size="18" text-anchor="middle" fill="#ccc">Social Interactions</text> <text x="160" y="500" font-size="18" text-anchor="middle" fill="#ccc">Learning Activities</text> <text x="90" y="300" font-size="18" text-anchor="middle" fill="#ccc" transform="rotate(-90 90,300)">Content Interactions</text>
+
+<!-- Middle circle -->
+
+<circle cx="300" cy="300" r="140" stroke="#ccc" stroke-width="1" fill="none" />
+
+<!-- Arrows and labels -->
+
+<text x="300" y="140" font-size="18" text-anchor="middle" fill="gray">Cognitive</text> <text x="450" y="305" font-size="18" text-anchor="start" fill="gray">Emotional</text> <text x="300" y="470" font-size="18" text-anchor="middle" fill="gray">Social</text> <text x="150" y="305" font-size="18" text-anchor="end" fill="gray">Behavioral</text>
+
+<!-- Arrow lines -->
+
+<line x1="300" y1="300" x2="300" y2="160" stroke="lightgray" marker-end="url(#arrowhead)" /> <line x1="300" y1="300" x2="440" y2="300" stroke="lightgray" marker-end="url(#arrowhead)" /> <line x1="300" y1="300" x2="300" y2="440" stroke="lightgray" marker-end="url(#arrowhead)" /> <line x1="300" y1="300" x2="160" y2="300" stroke="lightgray" marker-end="url(#arrowhead)" />
+
+<!-- Arrowhead definition -->
+
+<defs> <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="0" refY="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="lightgray" /> </marker> </defs>
+
+<!-- Center person icon (simplified as a circle + screen) -->
+
+<circle cx="300" cy="300" r="30" fill="#ccc" /> <rect x="288" y="290" width="24" height="15" rx="2" ry="2" fill="white" stroke="#aaa" />
+
+</svg>

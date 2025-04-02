@@ -4,10 +4,12 @@ project:
   render:
     - index.qmd
     - about.qmd
-    - courses/sharing/main_sharing.qmd
-    - courses/tailor/main_tailor.qmd
-    - courses/workshop/wsh-2024-2025/workshop.qmd
-    # - courses/shee/2023-2024/shee.qmd
+    - courses/shee/sharing/main_sharing.qmd
+    - courses/shee/tailor/main_tailor.qmd
+    # - courses/shee/workshop/main_workshop.qmd
+  resources:
+    - _about/IMG_9039Jn.jpg
+    - courses/archive/_resources/
     
 website:
   title: "P-MAPR"
@@ -21,7 +23,7 @@ website:
         menu:
           - sidebar:shr
           - sidebar:tlr
-          - sidebar:wsh
+          # - sidebar:wsh
       
   sidebar:
     - id: shr
@@ -31,21 +33,21 @@ website:
       background: light
       collapse-level: 2
       contents:
-        - courses/sharing/main_sharing.qmd
+        - courses/shee/sharing/main_sharing.qmd
     - id: tlr
       title: "Tailor Slides"
       style: "docked"
       background: light
       collapse-level: 2
       contents:
-        - courses/tailor/trl-2024-2025/tailor.qmd
-    - id: wsh
-      title: "Workshop Slides"
-      style: "docked"
-      background: light
-      collapse-level: 2
-      contents:
-        - courses/workshop/wsh-2024-2025/workshop.qmd
+        - courses/shee/tailor/main_tailor.qmd
+    # - id: wsh
+    #   title: "Workshop Slides"
+    #   style: "docked"
+    #   background: light
+    #   collapse-level: 2
+    #   contents:
+    #     - courses/shee/workshop/main_workshop.qmd
         
 format:
   html:
@@ -56,6 +58,8 @@ format:
     link-external-newwindow: true
     linkcolor: '#BC0031'
     css: styles.css
+  revealjs:
+    output-ext: "slide.html"
 
 html-math-method:
   method: mathjax
