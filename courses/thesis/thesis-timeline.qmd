@@ -28,8 +28,9 @@ gantt
     section References
     Fix References        :rf1, 2025-04-20, 1d
     section Revision
-    Final Revision        :rev1, 2025-04-21, 3d
-    Thesis-submission     :sbm2, 2025-05-15, 1d
+    Final Revision        :rev1, 2025-04-21, 6d
+    Final thesis committee  :ftc, 2025-05-12, 10d
+    Thesis-submission     :sbm2, 2025-06-2, 1d
 ```
 
 # Thesis Writing Progress Checklist
@@ -49,15 +50,11 @@ I wanted to gently remind you that there are still a couple of key assignments m
 
 ## Thesis
 
--   [ ] **Background**
-
+-   [ ] *Background*
     -   [x] Causes of failure
     -   [ ] Theoretical Framework
-
--   [ ] Figures/Tables
-
+-   [ ] *Figures/Tables*
 -   [ ] Complete Results Section
-
     -   [x] Pilot Results
         -   [ ] Cognitive interview (SiID105 n=5; 12 2nd year medical students)
         -   [x] Questionnaire CVI & modification of SRL
@@ -79,18 +76,12 @@ I wanted to gently remind you that there are still a couple of key assignments m
             -   [x] Type of notification - association
             -   [ ] Respond/reaction from notification
         -   [ ] Trace activities Prediction model
-
--   [ ] Write Discussion
-
--   [ ] Write Conclusion
-
--   [ ] Write Abstract
-
+-   [ ] Discussion
+-   [ ] Conclusion
+-   [ ] Abstract
 -   [ ] Check References
-
     -   [ ] APA
     -   [ ] Biblatex
-
 -   [ ] Final Revision
 
 ```{=html}
@@ -102,9 +93,51 @@ function updateProgress() {
   document.getElementById('progress-bar').value = progress;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+function setupCheckboxes() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', function () {
+      // Check or uncheck all children
+      const currentLi = checkbox.closest('li');
+      if (currentLi) {
+        const childCheckboxes = currentLi.querySelectorAll('ul input[type="checkbox"]');
+        childCheckboxes.forEach(childCb => {
+          childCb.checked = checkbox.checked;
+        });
+      }
+
+      // Update parent checkbox if needed
+      let parentUl = checkbox.closest('ul');
+      while (parentUl) {
+        const parentLi = parentUl.closest('li');
+        if (parentLi) {
+          const parentCheckbox = parentLi.querySelector('input[type="checkbox"]');
+          const siblingCheckboxes = parentLi.querySelectorAll('ul > li > input[type="checkbox"]');
+          if (parentCheckbox && siblingCheckboxes.length > 0) {
+            const allChecked = Array.from(siblingCheckboxes).every(cb => cb.checked);
+            const noneChecked = Array.from(siblingCheckboxes).every(cb => !cb.checked);
+            if (allChecked) {
+              parentCheckbox.checked = true;
+              parentCheckbox.indeterminate = false;
+            } else if (noneChecked) {
+              parentCheckbox.checked = false;
+              parentCheckbox.indeterminate = false;
+            } else {
+              parentCheckbox.indeterminate = true;
+            }
+          }
+        }
+        parentUl = parentLi ? parentLi.closest('ul') : null;
+      }
+
+      updateProgress();
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  setupCheckboxes();
   updateProgress();
 });
 </script>
