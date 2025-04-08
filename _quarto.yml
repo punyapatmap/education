@@ -7,7 +7,7 @@ project:
     - blog.qmd
     - courses/shee/sharing/main_sharing.qmd
     - courses/shee/tailor/main_tailor.qmd
-    - courses/shee/thesis/thesis-timeline.qmd
+    - courses/thesis/thesis-timeline.qmd
     # - courses/shee/workshop/main_workshop.qmd
   resources:
     - _about/IMG_9039Jn.jpg
@@ -51,7 +51,7 @@ website:
       background: light
       collapse-level: 2
       contents:
-        - courses/shee/thesis/thesis-timeline.qmd
+        - courses/thesis/thesis-timeline.qmd
         
 format:
   html:

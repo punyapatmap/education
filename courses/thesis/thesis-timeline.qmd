@@ -1,5 +1,7 @@
 ---
 title: "Prab-Thesis Writing Plan"
+author: "Punyapat Maprapho"
+date-modified: 2025-04-09
 format: html
 execute:
   mermaid: true
@@ -8,7 +10,7 @@ execute:
 
 ```{mermaid}
 gantt
-    title Thesis Writing Plan
+    title Timeline-Thesis Writing Plan
     dateFormat  YYYY-MM-DD
     axisFormat  %d-%b
     
@@ -33,35 +35,28 @@ gantt
     Final Revision        :rev2, after ab1, 14d
     Send to committee     :sen1, after rev2, 14d
     
-    Expected Final thesis committee - Period  :ftc, 2025-05-27, 15d
-    Thesis-submission     :sbm2, 2025-06-20, 20d
+    Final thesis committee - Period  :ftc, 2025-05-27, 20d
+    Thesis-Final revision :revf, after ftc, 10d
+    Thesis-submission     :sbm2, after revf, 5d
 ```
 
 **Thesis Writing Progress Checklist**
 <progress id="progress-bar" value="0" max="100" style="width:100%; height:20px;">
-
 </progress>
 
-## Homework
+## Thesis - Writing progress
 
-I wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:
-
--   [ ] The Preliminary Data Analysis
--   [x] The Data Collection Summary
--   [ ] The Final Committee Meeting Date
--   [ ] The Final Data Analysis
-
-## Thesis
-
-### Background writing progress
--   [ ] *Background*
+:::: {.columns}
+::: {.column width="33%"}
+### Part-1 
+-   [ ] **Background**
     -   [x] Introduction
       -   [x] Problem
       -   [x] Gap
       -   [x] Hook
     -   [x] Theoretical Framework
   
--   [ ] *Intervention and Data Collection*
+-   [ ] **Intervention and Data Collection**
     -   [x] Pilot Intervention
         -   [x] Notification drafting
         -   [x] Cognitive interview
@@ -73,28 +68,32 @@ I wanted to gently remind you that there are still a couple of key assignments m
     -   [ ] SRL
         -   [x] Trace data - Pilot track
         -   [ ] K-mean clustering and PCA for SRL classification
+        
+:::
+::: {.column width="33%"}
+### Part-2
 
-### Results writing progress
-
--   [ ] *1st Course-SiID144 Results*
-    -   [x] *Primary Outcome*
+-   [x] **Primary Outcome**
+    -   [ ] **1st Course-SiID144 Results**
         -   [x] Demographic
         -   [x] KL-1 SDT
         -   [x] KL-2 Learning outcomes
         -   [ ] KL-3 Self-regulated Learning
--   [ ] *2nd Course-SiID145 Results*
-    -   [x] Demographic
-    -   [x] KL-1 SDT
-    -   [ ] KL-2 Learning outcomes
-    -   [ ] KL-3 Self-regulated Learning
+    -   [ ] **2nd Course-SiID145 Results**
+        -   [x] Demographic
+        -   [x] KL-1 SDT
+        -   [ ] KL-2 Learning outcomes
+        -   [ ] KL-3 Self-regulated Learning
     
--   [ ] *Secondary Outcome*
+-   [ ] **Secondary Outcome**
     -   [ ] Notification
         -   [x] Type of notification - association
         -   [ ] Respond/reaction from notification
     -   [ ] Trace activities Prediction model
-    
-### Discussion and Conclusion writing progress
+
+:::
+::: {.column width="33%"}
+### Part-3
 
 -   [ ] Discussion
 -   [ ] Conclusion
@@ -102,6 +101,18 @@ I wanted to gently remind you that there are still a couple of key assignments m
 -   [ ] Check References
     -   [ ] APA
     -   [ ] Biblatex
+    
+:::
+::::
+
+## Homework
+
+I wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:
+
+-   [ ] The Preliminary Data Analysis
+-   [x] The Data Collection Summary
+-   [ ] The Final Committee Meeting Date
+-   [ ] The Final Data Analysis
 
 ```{=html}
 <script>

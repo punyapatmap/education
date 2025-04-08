@@ -9,9 +9,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Prab Punyapat Maprapho",
+    "title": "Prab Punyapat Maprapho, MD",
     "section": "",
-    "text": "Punyapat Maprapho is Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending time taking care of patients as another side husle as primary care physician."
+    "text": "I’m Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending time taking care of patients as another side husle as primary care physician."
   },
   {
     "objectID": "2025_authentic.html#authentic-assessment-aa",
@@ -867,14 +867,14 @@
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
-    "title": "Prab Punyapat Maprapho",
+    "title": "Prab Punyapat Maprapho, MD",
     "section": "Education",
-    "text": "Education\nHarvard Medical School, Harvard University | Boston, MA MMSc in Medical Education | Sep 2023 - June 2025\nMahidol University | Bangkok, Thailand M.D. in Medicine | May 2013 - May 2019"
+    "text": "Education\nHarvard Medical School, Harvard University | Boston, MA MMSc in Medical Education | Sep 2023 - Present\nMahidol University | Bangkok, Thailand M.D. in Medicine | May 2013 - May 2019"
   },
   {
     "objectID": "about.html#experience",
     "href": "about.html#experience",
-    "title": "Prab Punyapat Maprapho",
+    "title": "Prab Punyapat Maprapho, MD",
     "section": "Experience",
     "text": "Experience\nFaculty of Medicine Siriraj Hospital, Mahidol University | Educator and Learning Analyst | April 2018 - present\nPreceptorAI at Cariva | Learning Analyst | Sep 2022 - present"
   },
@@ -888,9 +888,9 @@
   {
     "objectID": "about.html#introduction",
     "href": "about.html#introduction",
-    "title": "Prab Punyapat Maprapho",
+    "title": "Prab Punyapat Maprapho, MD",
     "section": "",
-    "text": "Punyapat Maprapho is Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending time taking care of patients as another side husle as primary care physician."
+    "text": "I’m Educator at heart and Data Scientist in Learning analytics as one of his favorite hobbies. When not innovating on data platforms, Prab enjoys spending time taking care of patients as another side husle as primary care physician."
   },
   {
     "objectID": "courses/sharing/main_sharing.html",
@@ -959,5 +959,45 @@
     "title": "Prab Punyapat Maprapho",
     "section": "Experience",
     "text": "Experience\nFaculty of Medicine Siriraj Hospital, Mahidol University | Educator and Learning Analyst | April 2018 - present\nPreceptorAI at Cariva | Learning Analyst | Sep 2022 - present"
+  },
+  {
+    "objectID": "courses/thesis/thesis-timeline.html",
+    "href": "courses/thesis/thesis-timeline.html",
+    "title": "Prab-Thesis Writing Plan",
+    "section": "",
+    "text": "gantt\n    title Timeline-Thesis Writing Plan\n    dateFormat  YYYY-MM-DD\n    axisFormat  %d-%b\n    \n    section Background\n    Finish Background     :active, bg1, 2025-04-08, 5d\n    section Analysis\n    Write Analysis      :done     an1, 2025-04-10, 3d\n    section Figures/Tables\n    Revised-Finalized Figures/Tables (w/ Tari)      :ft1, 2025-04-15, 1d\n    section Results\n    Write Results         :       rs1, after ft1, 8d\n    \n    section Discussion\n    Write Discussion      :dc1, 2025-04-20, 7d\n    section Conclusion\n    Write Conclusion      :cc1, 2025-04-27, 3d\n    section Abstract\n    Write Abstract        :ab1, 2025-04-30, 0.5d\n\n    section Revision\n    First Half-revision   :rev1, 2025-04-20, 7d\n    Final Revision        :rev2, after ab1, 14d\n    Send to committee     :sen1, after rev2, 14d\n    \n    Final thesis committee - Period  :ftc, 2025-05-27, 20d\n    Thesis-Final revision :revf, after ftc, 10d\n    Thesis-submission     :sbm2, after revf, 5d\nThesis Writing Progress Checklist",
+    "crumbs": [
+      "Prab-Thesis Writing Plan"
+    ]
+  },
+  {
+    "objectID": "courses/thesis/thesis-timeline.html#homework",
+    "href": "courses/thesis/thesis-timeline.html#homework",
+    "title": "Prab-Thesis Writing Plan",
+    "section": "Homework",
+    "text": "Homework\nI wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:\n\nThe Preliminary Data Analysis\nThe Data Collection Summary\nThe Final Committee Meeting Date\nThe Final Data Analysis",
+    "crumbs": [
+      "Prab-Thesis Writing Plan"
+    ]
+  },
+  {
+    "objectID": "courses/thesis/thesis-timeline.html#thesis",
+    "href": "courses/thesis/thesis-timeline.html#thesis",
+    "title": "Prab-Thesis Writing Plan",
+    "section": "Thesis",
+    "text": "Thesis\n\n\n\nPart-1 Writing progress\n\nBackground\n\nIntroduction\nProblem\nGap\nHook\nTheoretical Framework\n\nIntervention and Data Collection\n\nPilot Intervention\n\nNotification drafting\nCognitive interview\nNotification algorithm\n\nData Collection Process\n\nQuestionnaire Development\nmodification of SDT and CVI\nReliability and Cronbach alpha\n\nSRL\n\nTrace data - Pilot track\nK-mean clustering and PCA for SRL classification\n\n\n\n\n\n\nPart-2 Writing progress\n\nPrimary Outcome\n\n1st Course-SiID144 Results\n\nDemographic\nKL-1 SDT\nKL-2 Learning outcomes\nKL-3 Self-regulated Learning\n\n2nd Course-SiID145 Results\n\nDemographic\nKL-1 SDT\nKL-2 Learning outcomes\nKL-3 Self-regulated Learning\n\n\nSecondary Outcome\n\nNotification\n\nType of notification - association\nRespond/reaction from notification\n\nTrace activities Prediction model\n\n\n\n\n\nPart-3 Writing progress\n\nDiscussion\nConclusion\nAbstract\nCheck References\n\nAPA\nBiblatex",
+    "crumbs": [
+      "Prab-Thesis Writing Plan"
+    ]
+  },
+  {
+    "objectID": "courses/thesis/thesis-timeline.html#thesis---writing-progress",
+    "href": "courses/thesis/thesis-timeline.html#thesis---writing-progress",
+    "title": "Prab-Thesis Writing Plan",
+    "section": "Thesis - Writing progress",
+    "text": "Thesis - Writing progress\n\n\n\nPart-1\n\nBackground\n\nIntroduction\nProblem\nGap\nHook\nTheoretical Framework\n\nIntervention and Data Collection\n\nPilot Intervention\n\nNotification drafting\nCognitive interview\nNotification algorithm\n\nData Collection Process\n\nQuestionnaire Development\nmodification of SDT and CVI\nReliability and Cronbach alpha\n\nSRL\n\nTrace data - Pilot track\nK-mean clustering and PCA for SRL classification\n\n\n\n\n\n\nPart-2\n\nPrimary Outcome\n\n1st Course-SiID144 Results\n\nDemographic\nKL-1 SDT\nKL-2 Learning outcomes\nKL-3 Self-regulated Learning\n\n2nd Course-SiID145 Results\n\nDemographic\nKL-1 SDT\nKL-2 Learning outcomes\nKL-3 Self-regulated Learning\n\n\nSecondary Outcome\n\nNotification\n\nType of notification - association\nRespond/reaction from notification\n\nTrace activities Prediction model\n\n\n\n\n\nPart-3\n\nDiscussion\nConclusion\nAbstract\nCheck References\n\nAPA\nBiblatex",
+    "crumbs": [
+      "Prab-Thesis Writing Plan"
+    ]
   }
 ]
