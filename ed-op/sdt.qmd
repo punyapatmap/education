@@ -1,11 +1,10 @@
 ---
 title: "Self-Determination Theory"
 description: "How we are having motivation?"
+format: html
 author: "Punyapat Maprapho"
 date: "4/03/2025"
 ---
-
-# Self-Determination Theory
 
 Determination
 
