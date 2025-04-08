@@ -65,8 +65,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="thesis-writing-timeline" class="level1">
-<h1>Thesis Writing Timeline</h1>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -76,40 +74,43 @@ ul.task-list li input[type="checkbox"] {
     title Thesis Writing Plan
     dateFormat  YYYY-MM-DD
     axisFormat  %d-%b
+    
     section Background
-    Finish Background     :done, bg1, 2025-04-08, 2d
-    section Results
-    Write Results         :rs1, 2025-04-10, 3d
-    section Discussion
-    Write Discussion      :dc1, 2025-04-13, 5d
-    section Conclusion
-    Write Conclusion      :cc1, 2025-04-18, 1d
+    Finish Background     :active, bg1, 2025-04-08, 5d
+    section Analysis
+    Write Analysis      :done     an1, 2025-04-10, 3d
     section Figures/Tables
-    Finalize Figures      :ft1, 2025-04-19, 1d
+    Revised-Finalized Figures/Tables (w/ Tari)      :ft1, 2025-04-15, 1d
+    section Results
+    Write Results         :       rs1, after ft1, 8d
+    
+    section Discussion
+    Write Discussion      :dc1, 2025-04-20, 7d
+    section Conclusion
+    Write Conclusion      :cc1, 2025-04-27, 3d
     section Abstract
-    Write Abstract        :ab1, 2025-04-20, 0.5d
-    section References
-    Fix References        :rf1, 2025-04-20, 1d
+    Write Abstract        :ab1, 2025-04-30, 0.5d
+
     section Revision
-    Final Revision        :rev1, 2025-04-21, 6d
-    Final thesis committee  :ftc, 2025-05-12, 10d
-    Thesis-submission     :sbm2, 2025-06-2, 1d
+    First Half-revision   :rev1, 2025-04-20, 7d
+    Final Revision        :rev2, after ab1, 14d
+    Send to committee     :sen1, after rev2, 14d
+    
+    Expected Final thesis committee - Period  :ftc, 2025-05-27, 15d
+    Thesis-submission     :sbm2, 2025-06-20, 20d
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-</section>
-<section id="thesis-writing-progress-checklist" class="level1">
-<h1>Thesis Writing Progress Checklist</h1>
-<progress id="progress-bar" value="0" max="100" style="width:100%; height:20px;">
-</progress>
+<p><strong>Thesis Writing Progress Checklist</strong> <progress id="progress-bar" value="0" max="100" style="width:100%; height:20px;"></progress></p>
+
 <section id="homework" class="level2">
 <h2 class="anchored" data-anchor-id="homework">Homework</h2>
 <p>I wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">The Preliminary Data Analysis assignment</label></li>
+<li><label><input type="checkbox">The Preliminary Data Analysis</label></li>
 <li><label><input type="checkbox" checked="">The Data Collection Summary</label></li>
 <li><label><input type="checkbox">The Final Committee Meeting Date</label></li>
 <li><label><input type="checkbox">The Final Data Analysis</label></li>
@@ -117,25 +118,43 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="thesis" class="level2">
 <h2 class="anchored" data-anchor-id="thesis">Thesis</h2>
+<section id="background-writing-progress" class="level3">
+<h3 class="anchored" data-anchor-id="background-writing-progress">Background writing progress</h3>
 <ul class="task-list">
 <li><label><input type="checkbox"><em>Background</em></label>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Causes of failure</label></li>
-<li><label><input type="checkbox">Theoretical Framework</label></li>
+<li><label><input type="checkbox" checked="">Introduction</label></li>
+<li><label><input type="checkbox" checked="">Problem</label></li>
+<li><label><input type="checkbox" checked="">Gap</label></li>
+<li><label><input type="checkbox" checked="">Hook</label></li>
+<li><label><input type="checkbox" checked="">Theoretical Framework</label></li>
 </ul></li>
-<li><label><input type="checkbox"><em>Figures/Tables</em></label></li>
-<li><label><input type="checkbox">Complete Results Section</label>
+<li><label><input type="checkbox"><em>Intervention and Data Collection</em></label>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Pilot Results</label>
+<li><label><input type="checkbox" checked="">Pilot Intervention</label>
 <ul class="task-list">
-<li><label><input type="checkbox">Cognitive interview (SiID105 n=5; 12 2nd year medical students)</label></li>
-<li><label><input type="checkbox" checked="">Questionnaire CVI &amp; modification of SRL</label>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Reliability and cronbach alpha</label></li>
+<li><label><input type="checkbox" checked="">Notification drafting</label></li>
+<li><label><input type="checkbox" checked="">Cognitive interview</label></li>
+<li><label><input type="checkbox" checked="">Notification algorithm</label></li>
 </ul></li>
-<li><label><input type="checkbox" checked="">K-mean clustering and PCA for SRL classification</label></li>
+<li><label><input type="checkbox">Data Collection Process</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Questionnaire Development</label></li>
+<li><label><input type="checkbox" checked="">modification of SDT and CVI</label></li>
+<li><label><input type="checkbox">Reliability and Cronbach alpha</label></li>
 </ul></li>
-<li><label><input type="checkbox">SiID144 Results</label>
+<li><label><input type="checkbox">SRL</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Trace data - Pilot track</label></li>
+<li><label><input type="checkbox">K-mean clustering and PCA for SRL classification</label></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<ul class="task-list">
+<li><label><input type="checkbox"><em>1st Course-SiID144 Results</em></label>
 <ul class="task-list">
 <li><label><input type="checkbox" checked=""><em>Primary Outcome</em></label>
 <ul class="task-list">
@@ -145,14 +164,14 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">KL-3 Self-regulated Learning</label></li>
 </ul></li>
 </ul></li>
-<li><label><input type="checkbox">SiID145 Results</label>
+<li><label><input type="checkbox"><em>2nd Course-SiID145 Results</em></label>
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Demographic</label></li>
 <li><label><input type="checkbox" checked="">KL-1 SDT</label></li>
 <li><label><input type="checkbox">KL-2 Learning outcomes</label></li>
 <li><label><input type="checkbox">KL-3 Self-regulated Learning</label></li>
 </ul></li>
-<li><label><input type="checkbox">Secondary Outcome</label>
+<li><label><input type="checkbox"><em>Secondary Outcome</em></label>
 <ul class="task-list">
 <li><label><input type="checkbox">Notification</label>
 <ul class="task-list">
@@ -161,7 +180,11 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><label><input type="checkbox">Trace activities Prediction model</label></li>
 </ul></li>
-</ul></li>
+</ul>
+</section>
+<section id="discussion-and-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-and-conclusion">Discussion and Conclusion</h3>
+<ul class="task-list">
 <li><label><input type="checkbox">Discussion</label></li>
 <li><label><input type="checkbox">Conclusion</label></li>
 <li><label><input type="checkbox">Abstract</label></li>
@@ -170,9 +193,10 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">APA</label></li>
 <li><label><input type="checkbox">Biblatex</label></li>
 </ul></li>
-<li><label><input type="checkbox">Final Revision</label></li>
 </ul>
 <script>
+let isUnlocked = false; // initially locked
+
 function updateProgress() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   const checked = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -184,41 +208,57 @@ function setupCheckboxes() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
   checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', function () {
-      // Check or uncheck all children
-      const currentLi = checkbox.closest('li');
-      if (currentLi) {
-        const childCheckboxes = currentLi.querySelectorAll('ul input[type="checkbox"]');
-        childCheckboxes.forEach(childCb => {
-          childCb.checked = checkbox.checked;
-        });
+    checkbox.addEventListener('click', function (event) {
+      if (!isUnlocked) {
+        event.preventDefault(); // stop checkbox click
+        const password = prompt("Enter password to edit checklist:");
+        if (password === "pmaprapho") { // change this password
+          isUnlocked = true;
+        } else {
+          alert("Incorrect password.");
+          return; // stop everything
+        }
       }
+      // if unlocked, normal behavior
+    });
 
-      // Update parent checkbox if needed
-      let parentUl = checkbox.closest('ul');
-      while (parentUl) {
-        const parentLi = parentUl.closest('li');
-        if (parentLi) {
-          const parentCheckbox = parentLi.querySelector('input[type="checkbox"]');
-          const siblingCheckboxes = parentLi.querySelectorAll('ul > li > input[type="checkbox"]');
-          if (parentCheckbox && siblingCheckboxes.length > 0) {
-            const allChecked = Array.from(siblingCheckboxes).every(cb => cb.checked);
-            const noneChecked = Array.from(siblingCheckboxes).every(cb => !cb.checked);
-            if (allChecked) {
-              parentCheckbox.checked = true;
-              parentCheckbox.indeterminate = false;
-            } else if (noneChecked) {
-              parentCheckbox.checked = false;
-              parentCheckbox.indeterminate = false;
-            } else {
-              parentCheckbox.indeterminate = true;
+    checkbox.addEventListener('change', function () {
+      if (isUnlocked) {
+        // Child check
+        const currentLi = checkbox.closest('li');
+        if (currentLi) {
+          const childCheckboxes = currentLi.querySelectorAll('ul input[type="checkbox"]');
+          childCheckboxes.forEach(childCb => {
+            childCb.checked = checkbox.checked;
+          });
+        }
+
+        // Parent check
+        let parentUl = checkbox.closest('ul');
+        while (parentUl) {
+          const parentLi = parentUl.closest('li');
+          if (parentLi) {
+            const parentCheckbox = parentLi.querySelector('input[type="checkbox"]');
+            const siblingCheckboxes = parentLi.querySelectorAll('ul > li > input[type="checkbox"]');
+            if (parentCheckbox && siblingCheckboxes.length > 0) {
+              const allChecked = Array.from(siblingCheckboxes).every(cb => cb.checked);
+              const noneChecked = Array.from(siblingCheckboxes).every(cb => !cb.checked);
+              if (allChecked) {
+                parentCheckbox.checked = true;
+                parentCheckbox.indeterminate = false;
+              } else if (noneChecked) {
+                parentCheckbox.checked = false;
+                parentCheckbox.indeterminate = false;
+              } else {
+                parentCheckbox.indeterminate = true;
+              }
             }
           }
+          parentUl = parentLi ? parentLi.closest('ul') : null;
         }
-        parentUl = parentLi ? parentLi.closest('ul') : null;
-      }
 
-      updateProgress();
+        updateProgress();
+      }
     });
   });
 }
@@ -228,17 +268,8 @@ document.addEventListener('DOMContentLoaded', function () {
   updateProgress();
 });
 </script>
+
 </section>
-</section>
-<section id="notes-to-self" class="level1">
-<h1>Notes to Self</h1>
-<ul>
-<li>Focus on finishing major sections first.</li>
-<li>Spend extra time on Results.</li>
-<li>Allocate enough time for final revisions and formatting.</li>
-<li>Update checklist daily to track real progress.</li>
-</ul>
-<hr>
 </section>
 
 </main>

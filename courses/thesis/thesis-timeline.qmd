@@ -6,35 +6,38 @@ execute:
   echo: false
 ---
 
-# Thesis Writing Timeline
-
 ```{mermaid}
 gantt
     title Thesis Writing Plan
     dateFormat  YYYY-MM-DD
     axisFormat  %d-%b
+    
     section Background
-    Finish Background     :done, bg1, 2025-04-08, 2d
-    section Results
-    Write Results         :rs1, 2025-04-10, 3d
-    section Discussion
-    Write Discussion      :dc1, 2025-04-13, 5d
-    section Conclusion
-    Write Conclusion      :cc1, 2025-04-18, 1d
+    Finish Background     :active, bg1, 2025-04-08, 5d
+    section Analysis
+    Write Analysis      :done     an1, 2025-04-10, 3d
     section Figures/Tables
-    Finalize Figures      :ft1, 2025-04-19, 1d
+    Revised-Finalized Figures/Tables (w/ Tari)      :ft1, 2025-04-15, 1d
+    section Results
+    Write Results         :       rs1, after ft1, 8d
+    
+    section Discussion
+    Write Discussion      :dc1, 2025-04-20, 7d
+    section Conclusion
+    Write Conclusion      :cc1, 2025-04-27, 3d
     section Abstract
-    Write Abstract        :ab1, 2025-04-20, 0.5d
-    section References
-    Fix References        :rf1, 2025-04-20, 1d
+    Write Abstract        :ab1, 2025-04-30, 0.5d
+
     section Revision
-    Final Revision        :rev1, 2025-04-21, 6d
-    Final thesis committee  :ftc, 2025-05-12, 10d
-    Thesis-submission     :sbm2, 2025-06-2, 1d
+    First Half-revision   :rev1, 2025-04-20, 7d
+    Final Revision        :rev2, after ab1, 14d
+    Send to committee     :sen1, after rev2, 14d
+    
+    Expected Final thesis committee - Period  :ftc, 2025-05-27, 15d
+    Thesis-submission     :sbm2, 2025-06-20, 20d
 ```
 
-# Thesis Writing Progress Checklist
-
+**Thesis Writing Progress Checklist**
 <progress id="progress-bar" value="0" max="100" style="width:100%; height:20px;">
 
 </progress>
@@ -43,49 +46,67 @@ gantt
 
 I wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:
 
--   [ ] The Preliminary Data Analysis assignment
+-   [ ] The Preliminary Data Analysis
 -   [x] The Data Collection Summary
 -   [ ] The Final Committee Meeting Date
 -   [ ] The Final Data Analysis
 
 ## Thesis
 
+### Background writing progress
 -   [ ] *Background*
-    -   [x] Causes of failure
-    -   [ ] Theoretical Framework
--   [ ] *Figures/Tables*
--   [ ] Complete Results Section
-    -   [x] Pilot Results
-        -   [ ] Cognitive interview (SiID105 n=5; 12 2nd year medical students)
-        -   [x] Questionnaire CVI & modification of SRL
-            -   [x] Reliability and cronbach alpha
-        -   [x] K-mean clustering and PCA for SRL classification
-    -   [ ] SiID144 Results
-        -   [x] *Primary Outcome*
-            -   [x] Demographic
-            -   [x] KL-1 SDT
-            -   [x] KL-2 Learning outcomes
-            -   [ ] KL-3 Self-regulated Learning
-    -   [ ] SiID145 Results
+    -   [x] Introduction
+      -   [x] Problem
+      -   [x] Gap
+      -   [x] Hook
+    -   [x] Theoretical Framework
+  
+-   [ ] *Intervention and Data Collection*
+    -   [x] Pilot Intervention
+        -   [x] Notification drafting
+        -   [x] Cognitive interview
+        -   [x] Notification algorithm
+    -   [ ] Data Collection Process
+        -   [x] Questionnaire Development
+        -   [x] modification of SDT and CVI
+        -   [ ] Reliability and Cronbach alpha
+    -   [ ] SRL
+        -   [x] Trace data - Pilot track
+        -   [ ] K-mean clustering and PCA for SRL classification
+
+### Results writing progress
+
+-   [ ] *1st Course-SiID144 Results*
+    -   [x] *Primary Outcome*
         -   [x] Demographic
         -   [x] KL-1 SDT
-        -   [ ] KL-2 Learning outcomes
+        -   [x] KL-2 Learning outcomes
         -   [ ] KL-3 Self-regulated Learning
-    -   [ ] Secondary Outcome
-        -   [ ] Notification
-            -   [x] Type of notification - association
-            -   [ ] Respond/reaction from notification
-        -   [ ] Trace activities Prediction model
+-   [ ] *2nd Course-SiID145 Results*
+    -   [x] Demographic
+    -   [x] KL-1 SDT
+    -   [ ] KL-2 Learning outcomes
+    -   [ ] KL-3 Self-regulated Learning
+    
+-   [ ] *Secondary Outcome*
+    -   [ ] Notification
+        -   [x] Type of notification - association
+        -   [ ] Respond/reaction from notification
+    -   [ ] Trace activities Prediction model
+    
+### Discussion and Conclusion writing progress
+
 -   [ ] Discussion
 -   [ ] Conclusion
 -   [ ] Abstract
 -   [ ] Check References
     -   [ ] APA
     -   [ ] Biblatex
--   [ ] Final Revision
 
 ```{=html}
 <script>
+let isUnlocked = false; // initially locked
+
 function updateProgress() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   const checked = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -97,41 +118,57 @@ function setupCheckboxes() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
   checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', function () {
-      // Check or uncheck all children
-      const currentLi = checkbox.closest('li');
-      if (currentLi) {
-        const childCheckboxes = currentLi.querySelectorAll('ul input[type="checkbox"]');
-        childCheckboxes.forEach(childCb => {
-          childCb.checked = checkbox.checked;
-        });
+    checkbox.addEventListener('click', function (event) {
+      if (!isUnlocked) {
+        event.preventDefault(); // stop checkbox click
+        const password = prompt("Enter password to edit checklist:");
+        if (password === "pmaprapho") { // change this password
+          isUnlocked = true;
+        } else {
+          alert("Incorrect password.");
+          return; // stop everything
+        }
       }
+      // if unlocked, normal behavior
+    });
 
-      // Update parent checkbox if needed
-      let parentUl = checkbox.closest('ul');
-      while (parentUl) {
-        const parentLi = parentUl.closest('li');
-        if (parentLi) {
-          const parentCheckbox = parentLi.querySelector('input[type="checkbox"]');
-          const siblingCheckboxes = parentLi.querySelectorAll('ul > li > input[type="checkbox"]');
-          if (parentCheckbox && siblingCheckboxes.length > 0) {
-            const allChecked = Array.from(siblingCheckboxes).every(cb => cb.checked);
-            const noneChecked = Array.from(siblingCheckboxes).every(cb => !cb.checked);
-            if (allChecked) {
-              parentCheckbox.checked = true;
-              parentCheckbox.indeterminate = false;
-            } else if (noneChecked) {
-              parentCheckbox.checked = false;
-              parentCheckbox.indeterminate = false;
-            } else {
-              parentCheckbox.indeterminate = true;
+    checkbox.addEventListener('change', function () {
+      if (isUnlocked) {
+        // Child check
+        const currentLi = checkbox.closest('li');
+        if (currentLi) {
+          const childCheckboxes = currentLi.querySelectorAll('ul input[type="checkbox"]');
+          childCheckboxes.forEach(childCb => {
+            childCb.checked = checkbox.checked;
+          });
+        }
+
+        // Parent check
+        let parentUl = checkbox.closest('ul');
+        while (parentUl) {
+          const parentLi = parentUl.closest('li');
+          if (parentLi) {
+            const parentCheckbox = parentLi.querySelector('input[type="checkbox"]');
+            const siblingCheckboxes = parentLi.querySelectorAll('ul > li > input[type="checkbox"]');
+            if (parentCheckbox && siblingCheckboxes.length > 0) {
+              const allChecked = Array.from(siblingCheckboxes).every(cb => cb.checked);
+              const noneChecked = Array.from(siblingCheckboxes).every(cb => !cb.checked);
+              if (allChecked) {
+                parentCheckbox.checked = true;
+                parentCheckbox.indeterminate = false;
+              } else if (noneChecked) {
+                parentCheckbox.checked = false;
+                parentCheckbox.indeterminate = false;
+              } else {
+                parentCheckbox.indeterminate = true;
+              }
             }
           }
+          parentUl = parentLi ? parentLi.closest('ul') : null;
         }
-        parentUl = parentLi ? parentLi.closest('ul') : null;
-      }
 
-      updateProgress();
+        updateProgress();
+      }
     });
   });
 }
@@ -141,13 +178,6 @@ document.addEventListener('DOMContentLoaded', function () {
   updateProgress();
 });
 </script>
+
 ```
 
-# Notes to Self
-
--   Focus on finishing major sections first.
--   Spend extra time on Results.
--   Allocate enough time for final revisions and formatting.
--   Update checklist daily to track real progress.
-
-------------------------------------------------------------------------
