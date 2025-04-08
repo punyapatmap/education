@@ -1,0 +1,54 @@
+---
+title: "lifelong-learning"
+crossref:
+  fig-labels: alpha a    # (default is arabic)
+  tbl-labels: alpha a    # (default is arabic)
+  subref-labels: roman i # (default is alpha a)
+format:
+  # docx:
+  #   tof: true
+  #   tot: true
+  #   toc: true
+  #   toc-depth: 2
+  #   toc-title: Table of Contents
+  #   tof-title: Table of Figures
+  #   tot-title: Table of Tables
+  #   number-sections: true
+  #   highlight-style: github
+  pdf:
+    toc: true
+    toc-depth: 2
+    toc-title: Table of Contents
+    tof: true
+    tot: true
+    tof-title: Table of Figures
+    tot-title: Table of Tables
+    number-sections: true
+bibliography: references.bib
+csl: https://www.zotero.org/styles/apa
+reference-location: document
+---
+
+# Introduction
+
+What is active learning and why this is matter @Gogus2012
+
+I don't know how people mention about this in literature but it's amazing how much the topic has developed and evolved throughout the pass decade. @Voysey2021b
+
+![Experientail Learning \|300](lifelong-learning/experiential-learning.png){#fig-exp-learning}
+
+# Manager
+
+However, there are some learning tool that need improvement @seif2021
+
+# Statistical analysis
+
+here is another picture
+
+![Lifelong learning diagram](lifelong-learning/lifelong-learner-card.png){#fig-lifelong}
+
+# Improvement
+
+Using the construction and guidance on @fig-exp-learning how the literature help improve our understanding is the key @bordage2009 like have been shown in @fig-lifelong
+
+# Reference

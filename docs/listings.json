@@ -1,11 +1,6 @@
 [
   {
     "listing": "/blog.html",
-    "items": [
-      "/index.html",
-      "/about.html",
-      "/courses/shee/sharing/main_sharing.html",
-      "/courses/shee/tailor/main_tailor.html"
-    ]
+    "items": []
   }
 ]

@@ -10,7 +10,6 @@ project:
     # - courses/shee/workshop/main_workshop.qmd
   resources:
     - _about/IMG_9039Jn.jpg
-    - courses/archive/_resources/
     
 website:
   title: "P-MAPR"
@@ -63,15 +62,15 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     css: styles.css
-  revealjs:
-    smaller: false
-    linkcolor: '#BC0031'
-    transition: slide
-    background-transition: fade
-    theme: white
-    slide-number: true
-    touch: true
-    output-ext: slide.html
+  # revealjs:
+  #   smaller: false
+  #   linkcolor: '#BC0031'
+  #   transition: slide
+  #   background-transition: fade
+  #   theme: white
+  #   slide-number: true
+  #   touch: true
+  #   output-ext: slide.html
 
 html-math-method:
   method: mathjax

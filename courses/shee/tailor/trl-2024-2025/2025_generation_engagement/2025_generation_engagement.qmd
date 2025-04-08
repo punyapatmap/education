@@ -7,10 +7,10 @@ format:
   # html: default
   revealjs:
     default: true
-    # multiplex: true
-    # slide-number: true
-    # preview-links: auto
-    # footer: 'Generation Engagement'
+    multiplex: true
+    slide-number: true
+    preview-links: auto
+    footer: 'Generation Engagement'
     output-ext: slide.html
   
 editor: visual

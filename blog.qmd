@@ -1,6 +1,13 @@
 ---
-title: "Listing Example"
-listing: default
-contents:
-    - "education/ed-op/*.qmd"
+title: "Welcome to my Ed Blog"
+listing:
+  contents:
+    - "ed-op/*.qmd"
+  sort: "date desc"
+  sort-ui: true
+  filter-ui: true
+  type: default
+  categories: true
+page-layout: full
+title-block-banner: true
 ---

@@ -1,0 +1,120 @@
+---
+title: "Prab-Thesis Writing Plan"
+format: html
+execute:
+  mermaid: true
+  echo: false
+---
+
+# Thesis Writing Timeline
+
+```{mermaid}
+gantt
+    title Thesis Writing Plan
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d-%b
+    section Background
+    Finish Background     :done, bg1, 2025-04-08, 2d
+    section Results
+    Write Results         :rs1, 2025-04-10, 3d
+    section Discussion
+    Write Discussion      :dc1, 2025-04-13, 5d
+    section Conclusion
+    Write Conclusion      :cc1, 2025-04-18, 1d
+    section Figures/Tables
+    Finalize Figures      :ft1, 2025-04-19, 1d
+    section Abstract
+    Write Abstract        :ab1, 2025-04-20, 0.5d
+    section References
+    Fix References        :rf1, 2025-04-20, 1d
+    section Revision
+    Final Revision        :rev1, 2025-04-21, 3d
+    Thesis-submission     :sbm2, 2025-05-15, 1d
+```
+
+# Thesis Writing Progress Checklist
+
+<progress id="progress-bar" value="0" max="100" style="width:100%; height:20px;">
+
+</progress>
+
+## Homework
+
+I wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:
+
+-   [ ] The Preliminary Data Analysis assignment
+-   [x] The Data Collection Summary
+-   [ ] The Final Committee Meeting Date
+-   [ ] The Final Data Analysis
+
+## Thesis
+
+-   [ ] **Background**
+
+    -   [x] Causes of failure
+    -   [ ] Theoretical Framework
+
+-   [ ] Figures/Tables
+
+-   [ ] Complete Results Section
+
+    -   [x] Pilot Results
+        -   [ ] Cognitive interview (SiID105 n=5; 12 2nd year medical students)
+        -   [x] Questionnaire CVI & modification of SRL
+            -   [x] Reliability and cronbach alpha
+        -   [x] K-mean clustering and PCA for SRL classification
+    -   [ ] SiID144 Results
+        -   [x] *Primary Outcome*
+            -   [x] Demographic
+            -   [x] KL-1 SDT
+            -   [x] KL-2 Learning outcomes
+            -   [ ] KL-3 Self-regulated Learning
+    -   [ ] SiID145 Results
+        -   [x] Demographic
+        -   [x] KL-1 SDT
+        -   [ ] KL-2 Learning outcomes
+        -   [ ] KL-3 Self-regulated Learning
+    -   [ ] Secondary Outcome
+        -   [ ] Notification
+            -   [x] Type of notification - association
+            -   [ ] Respond/reaction from notification
+        -   [ ] Trace activities Prediction model
+
+-   [ ] Write Discussion
+
+-   [ ] Write Conclusion
+
+-   [ ] Write Abstract
+
+-   [ ] Check References
+
+    -   [ ] APA
+    -   [ ] Biblatex
+
+-   [ ] Final Revision
+
+```{=html}
+<script>
+function updateProgress() {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+  const progress = (checked.length / checkboxes.length) * 100;
+  document.getElementById('progress-bar').value = progress;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+  updateProgress();
+});
+</script>
+```
+
+# Notes to Self
+
+-   Focus on finishing major sections first.
+-   Spend extra time on Results.
+-   Allocate enough time for final revisions and formatting.
+-   Update checklist daily to track real progress.
+
+------------------------------------------------------------------------
