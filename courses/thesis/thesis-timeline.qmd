@@ -105,14 +105,16 @@ gantt
 :::
 ::::
 
-## Homework
-
-I wanted to gently remind you that there are still a couple of key assignments missing on the MEDED 711 Canvas site:
+## MEDED 711 Canvas Assignment
 
 -   [ ] The Preliminary Data Analysis
 -   [x] The Data Collection Summary
 -   [ ] The Final Committee Meeting Date
 -   [ ] The Final Data Analysis
+
+## Doodle Polls
+
+[Doodle Poll Link - Prab's Final Thesis committee meeting](https://doodle.com/meeting/participate/id/b6G5yRnd)
 
 ```{=html}
 <script>
