@@ -1,0 +1,202 @@
+---
+title: "Paradox: It's confusing"
+subtitle: "SHEE-Sharing"
+date: 2025-04-09
+date-format: long
+author: "Punyapat Maprapho, MD"
+format: 
+  revealjs:
+    css: sharing_style.css
+---
+
+## Why?! That doesn't make sense
+
+> "When the trend reverses upon considering a hidden variable."
+
+## Objectives
+
+>![]{.callout-tip}
+-   **Beware of confounding factors**
+-   **Beware of how you conclude the data**
+
+
+# 
+## What is Simpson's Paradox?
+
+::: incremental
+
+Simpson's Paradox
+: A phenomenon in which a trend appears in different groups of data but disappears or reverses when these groups are combined.
+: Indicates the presence of hidden variables.
+
+:::
+
+#
+## Example 1: Cambridge Admissions (1996)
+
+::: {.panel-tabset}
+
+### Admission Summary
+
+| Gender | Admitted/Total N | Admit Rate Overall |
+|--------|------------------|--------------------|
+| Male   | 584/2,470        | 24%                |
+| Female | 274/1,184        | 23%                |
+
+: Cambridge 1996 admission data. {#tbl-cambridge-admission-aggr}
+
+### Subgroup Analysis
+
+|   | Women |   |   | Men |   |   |
+|-------------|-----------------|-----------|-----------|-----------|-----------|-----------|
+|  | **Applied** | **Accepted** | **%** | **Applied** | **Accepted** | **%** |
+| Computer Science | 26 | 7 | 27% | 228 | 58 | 25% |
+| Economics | 240 | 63 | 26% | 512 | 112 | 22% |
+| Engineering | 164 | 52 | 32% | 972 | 252 | 26% |
+| Medicine | 416 | 99 | 24% | 578 | 140 | 24% |
+| Veterinary Medicine | 338 | 53 | 16% | 180 | 22 | 12% |
+| **TOTAL** | 1,184 | 274 | **23%** | 2,470 | 584 | 24% |
+
+: Cambridge 1996 admission data. {#tbl-cambridge-admission-subg}
+
+:::
+
+## How would you conclude from this data?
+
+**Observation:** 
+
+A. Males seem to have higher admission rates than females.
+
+B. Overall, men had a higher acceptance rate.
+
+C. Within each subject, women actually had a higher acceptance rate.
+
+# Theory Behind
+
+::: incremental
+-   **Confounding Variables:** Variables that influence both the independent and dependent variable, creating a spurious association.
+-   **Aggregation Bias:** Misleading results when data is improperly combined across groups.
+:::
+
+## Cambridge Admissions: Simpson's Paradox
+
+**Subgroup View:**
+
+-   In every department:
+    -   **Women's acceptance rates** are **higher** than men's.
+-   But **overall**:
+    -   Men have a slightly **higher** acceptance rate.
+
+::: {.callout-tip}
+**Key Confounder:** - Women applied more to **competitive departments**.
+:::
+
+## Cambridge Admissions (Fix)
+
+::: incremental
+
+**Solution:** - Compare acceptance **within each department**. - Adjust for department competitiveness (confounder).
+
+**Takeaway:** Always check subgroup data before concluding bias.
+
+:::
+
+# Example 2: {.smaller .scrollable}
+## Smoking Mothers and Small Babies 
+
+**Aggregated Data:**
+
+| Group               | \% Small for Age |
+|---------------------|------------------|
+| Smoking mothers     | 15%              |
+| Non-smoking mothers | 10%              |
+
+**Observation:** [- Babies born to smoking mothers are less likely to be small for gestational age (SGA).]{.fragment}
+
+**Reality:** [- Smoking mothers tend to deliver preterm, affecting size distributions.]{.fragment}
+
+
+# Example 2: {.smaller .scrollable}
+## Smoking Mothers: Subgroup Data (SGA Mortality)
+
+**SGA Infant Mortality Rates:**
+
+| Group                            | SGA Mortality Rate |
+|----------------------------------|--------------------|
+| Smoking Mothers' SGA Infants     | 3%                 |
+| Non-Smoking Mothers' SGA Infants | 6%                 |
+
+. . .
+
+**Conclusion:** - Among SGA infants, **those born to smoking mothers had lower mortality rates**.
+
+# Example 2: {.smaller .scrollable}
+## Smoking Mothers (Fix)
+
+**Solution:** - Adjust for **gestational age**. - Compare SGA infants **within smoking status**.
+
+**Takeaway:** Always stratify on major medical variables.
+
+
+# Example 3: {.smaller .scrollable}
+## Treatment Effectiveness
+
+**Aggregated Data:**
+
+| Group       | Recovery Rate Overall | Severity |
+|-------------|-----------------------|----------|
+| Treatment A | 80%                   | Mild     |
+| Treatment B | 60%                   | Severe   |
+
+**Observation:** [- Treatment A seems better than Treatment B overall.]{.fragment}
+
+**Reality:** [- Patients given Treatment A were healthier at baseline.]{.fragment}
+
+# Example 3: {.smaller .scrollable}
+## Treatment Effectiveness Subgroup
+
+**Subgroup Recovery Rates:**
+
+| Severity | Treatment A | Treatment B |
+|----------|-------------|-------------|
+| Mild     | 82%         | 83%         |
+| Severe   | 58%         | 60%         |
+
+. . .
+
+**Conclusion:** - **Within severity groups**, Treatment B performed slightly better.
+
+# Example 3: Treatment Effectiveness (Fix)
+
+**Solution:** - Compare recovery rates **within severity levels**.
+
+**Takeaway:** Always account for baseline characteristics.
+
+
+# Common Pitfalls
+
+-   Relying on **aggregate data** without checking subgroups.
+-   Ignoring **confounders** or assuming none exist.
+-   Jumping to **causal conclusions** from observational data.
+
+
+# How to Avoid Simpson's Paradox
+
+-   **Stratify** data when appropriate.
+-   **Adjust** for confounders statistically (e.g., regression models).
+-   **Interpret carefully** and always seek hidden variables.
+
+# Final Thoughts
+
+-   Always ask: *Could there be a hidden variable?*\
+-   Simpson's paradox reminds us that data analysis requires **caution** and **curiosity**.
+
+# Thank You!
+
+> "Numbers never lie. But the people who use them might."
+
+# Test
+
+```{.txt code-line-numbers="6-8"}
+This is 
+```

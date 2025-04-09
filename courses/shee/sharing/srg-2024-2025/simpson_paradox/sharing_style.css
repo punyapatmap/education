@@ -1,0 +1,69 @@
+/* For Most of my presentation */
+
+.reveal {
+  font-family: Tahoma, sans-serif;
+}
+
+/*
+.reveal h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+}
+
+.reveal h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+} */
+
+.reveal h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2em);
+  line-height: 1.2;
+}
+
+.reveal h2 {
+  font-size: clamp(1.2rem, 4vw, 1.8em);
+  line-height: 1.3;
+}
+
+
+.reveal table {
+  font-size: 60%;
+  width: 90%;
+  table-layout: auto;
+  word-break: break-word;
+}
+
+.reveal td:nth-child(5) {
+  border-left: 2px solid #333; /* thick dark line between Women and Men */
+}
+
+/* Make table and figure captions left-aligned */
+figcaption, .quarto-float-caption {
+  text-align: left;      /* left-align the caption text */
+}
+
+/* Make "Table 1", "Figure 2" part italic */
+figcaption strong, .quarto-float-caption strong {
+  font-style: italic;    /* italicize the Table/Figure label */
+  font-weight: normal;   /* optional: remove bold if you want lighter look */
+}
+
+/* For Table captions (tables) */
+.table-caption {
+  text-align: left;        /* left-align */
+}
+
+
+/* Improve bullet point spacing */
+.reveal ul, 
+.reveal ol {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  line-height: 1.4; /* More breathing room between lines */
+}
+
+/* Optional: slightly smaller bullets */
+.reveal ul li, 
+.reveal ol li {
+  margin-bottom: 0.2em; /* space between each bullet item */
+}
