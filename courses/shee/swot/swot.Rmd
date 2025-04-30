@@ -1,0 +1,375 @@
+---
+title: "SWOT project"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.
+
+```{r}
+library(googlesheets4)
+library(dplyr)
+library(stringr)
+library(lubridate)
+
+# Authenticate once
+gs4_deauth()
+gs4_auth()
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+# Read all sheets (assuming each sheet = 1 year)
+sheet_url <- "https://docs.google.com/spreadsheets/d/17-3r4O_d__mqYL7rP-0xkDD_msH7MnOY_QrbIfWlGxk"
+sheet_names <- sheet_names(sheet_url)
+```
+
+```{r}
+library(googlesheets4)
+library(dplyr)
+library(lubridate)
+library(stringr)
+
+# Read the sheet
+data <- read_sheet("https://docs.google.com/spreadsheets/d/17-3r4O_d__mqYL7rP-0xkDD_msH7MnOY_QrbIfWlGxk")
+
+```
+
+```{r}
+# Read and combine
+sheet_names_filtered <- sheet_names[sheet_names == "workshop_session"]
+
+# 3. Now only map over the filtered list
+session_data <- purrr::map_dfr(sheet_names_filtered, ~ 
+  read_sheet(sheet_url, sheet = .x)
+)
+
+# View structure
+glimpse(session_data)
+```
+
+```{r}
+# Clean and prepare time
+schedule_table <- session_data %>%
+  mutate(
+      # Extract only the HMS (hours, minutes, seconds) part from imported start_time
+      start_time = make_datetime(
+        year = year(session_date),
+        month = month(session_date),
+        day = day(session_date),
+        hour = hour(start_time),
+        min = minute(start_time),
+        sec = second(start_time)
+        ),
+      end_time = make_datetime(
+        year = year(session_date),
+        month = month(session_date),
+        day = day(session_date),
+        hour = hour(end_time),
+        min = minute(end_time),
+        sec = second(end_time)
+        ),
+    duration = as.numeric(difftime(end_time, start_time, 
+                                   units = "mins")),
+    session_date = session_date,
+    start_str = format(start_time, "%H:%M"),
+    end_str = format(end_time, "%H:%M"),
+    duration_mins = format(end_time, "%H:%M"),
+    time_range = paste0(start_str, " - ", end_str),
+    instructors = ifelse(is.na(co_instructor), 
+                         instructor, 
+                         paste(instructor, " ", co_instructor)))
+  #   )%>%
+  # select(session_date,
+  #        time_range,
+  #        duration,
+  #        topic,
+  #        instructors)
+```
+
+
+```{r}
+# Example data
+workshops <- data.frame(
+  workshop_id = c("WSP2025-01", 
+                  "WSP2025-02", 
+                  "WSP2025-03", 
+                  "WSP2025-04"),
+  planned_revenue_status = c("has_income", 
+                             "has_income", 
+                             "no_income", 
+                             "has_income"),
+  final_revenue_status = c("no_income", 
+                           "has_income", 
+                           "no_income", "no_income")
+)
+
+# See the table
+print(workshops)
+
+# Find workshops that changed from "has_income" to "no_income"
+changed_workshops <- workshops[
+  workshops$planned_revenue_status == "has_income" & 
+  workshops$final_revenue_status == "no_income", 
+]
+
+print(changed_workshops)
+```
+
+# Generate Schedule
+```{r}
+library(tidyverse)
+library(lubridate)
+library(knitr)
+
+generate_schedule_pdf <- function(workshop_id_filter,
+                                  data,
+                                  date_filter, 
+                                  workshop_title, 
+                                  place_name) {
+  
+  df <- data %>%
+    filter(workshop_id == workshop_id_filter, 
+           session_date == as.Date(date_filter)) %>%
+    mutate(
+      duration_mins = round(as.numeric(difftime(end_time, 
+                                                start_time, 
+                                                units = "mins"))),
+      duration_text = paste0(duration_mins, 
+                             " นาที"),
+      start_str = format(start_time, 
+                         "%H:%M"),
+      end_str = format(end_time, 
+                       "%H:%M"),
+      time_range = paste0(start_str, "–", end_str),
+      instructors = ifelse(is.na(co_instructor),
+                           instructor,
+                           paste(instructor, "/", co_instructor))
+    ) %>%
+    select(time_range, duration_text, topic, instructors)
+
+  # 🔥 Build table manually
+  table_header <- "| Time | Duration | Topic | Instructors |\n|:-----|:---------|:------|:------------|"
+  
+  table_body <- df %>%
+    mutate(row = paste0("| ", time_range, " | ", duration_text, " | ", topic, " | ", instructors, " |")) %>%
+    pull(row) %>%
+    paste(collapse = "\n")
+  
+  schedule_table <- paste0(table_header, "\n", table_body)
+
+  # Build full QMD text
+  qmd_text <- glue::glue("
+---
+title: '{workshop_title}'
+format:
+  pdf:
+    documentclass: article
+    geometry: top=1cm, bottom=2cm, left=2cm, right=2cm
+    fontsize: 10pt
+    mainfont: 'TH Sarabun New'
+    keep-tex: true
+fontsize: 10pt
+mainfont: 'TH Sarabun New'
+---
+
+{workshop_title}  
+{format(as.Date(date_filter), '%d %B %Y')} at {place_name}
+
+### Schedule
+
+{schedule_table}
+  ")
+
+  # Save .qmd
+  writeLines(qmd_text, "filled_schedule.qmd")
+
+  # Render PDF
+  system("quarto render filled_schedule.qmd")
+}
+
+```
+
+```{r}
+generate_schedule_pdf(
+  data = session_data,
+  workshop_id_filter = "wsp2025-q3001",
+  # date_filter = "2025-04-23",
+  workshop_title = "tech jaa",
+  place_name = "Siriraj Campus"
+)
+```
+
+# Gen 3
+```{r}
+generate_schedule_pdf <- function(workshop_id_filter, 
+                                  data,
+                                  workshop_title, 
+                                  place_name) {
+  session_date <- data
+  df <- data %>%
+    filter(workshop_id == workshop_id_filter) %>%
+    mutate(
+      duration_mins = round(as.numeric(difftime(end_time, start_time, units = "mins"))),
+      duration_text = paste0(duration_mins, " minutes"),
+      start_str = format(start_time, "%H:%M"),
+      end_str = format(end_time, "%H:%M"),
+      time_range = paste0(start_str, " – ", end_str),
+      instructors = ifelse(is.na(co_instructor),
+                           instructor,
+                           paste(instructor, "/", co_instructor))
+    ) %>%
+    select(session_date, time_range, duration_text, topic, instructors) %>%
+    arrange(session_date, time_range)
+
+  # 🔥 Group by session_date and create markdown tables
+  grouped_tables <- df %>%
+    group_split(session_date) %>%
+    map_chr(~ {
+      date_value <- format(unique(.x$session_date), "%d %B %Y")
+      table_header <- "| Time | Duration | Topic | Instructors |\n|:-----|:---------|:------|:------------|"
+      table_body <- .x %>%
+        mutate(row = paste0("| ", time_range, " | ", duration_text, " | ", topic, " | ", instructors, " |")) %>%
+        pull(row) %>%
+        paste(collapse = "\n")
+  
+  schedule_table <- paste0(table_header, "\n", table_body)
+      
+      
+      glue::glue("
+### {date_value}
+
+{table_header}
+{table_body}
+
+")
+    }) %>%
+    paste(collapse = "\n\n")
+
+  # 🔵 Full Quarto document
+  qmd_text <- glue::glue("
+---
+title: '{workshop_title}'
+subtitle: '{place_name}'
+format:
+  pdf:
+    documentclass: article
+    geometry: top=1cm, bottom=2cm, left=2cm, right=2cm
+    fontsize: 10pt
+    mainfont: 'TH Sarabun New'
+    keep-tex: true
+fontsize: 10pt
+tbl-colwidths: [15,15,50,20]
+mainfont: 'TH Sarabun New'
+---
+
+{grouped_tables}
+  ")
+
+  # Save to .qmd
+  writeLines(qmd_text, "filled_schedule.qmd")
+
+  # Render PDF
+  system("quarto render filled_schedule.qmd")
+}
+
+```
+
+```{r}
+session_data %>% select(session_date, start_time, end_time) %>% head()
+
+library(dplyr)
+library(lubridate)
+library(plyr)
+
+# Example input df
+# df: your workshop sessions for one date (already filtered)
+
+generate_schedule_table <- function(workshop_id_filter,
+                                    data) {
+    df <- data %>%
+    arrange(session_date, start_time)  # First: sort by date and time
+  
+  # Group by each day separately
+  result_all_dates <- df %>%
+    group_split(session_date) %>%
+    map_dfr(function(day_df) {
+      
+      day_df <- day_df %>%
+        arrange(start_time) %>%
+        mutate(
+          next_start = lead(start_time),
+          conflict = if_else(
+            is.na(next_start), 
+            FALSE,
+            if_else(is_parallel == 1 | lead(is_parallel) == 1, FALSE, end_time > next_start)
+          )
+        )
+      
+      # ⚠️ Check conflicts within this date
+      if (any(day_df$conflict, na.rm = TRUE)) {
+        warning(paste0("Conflict detected on ", unique(day_df$session_date)))
+        print(day_df %>% filter(conflict == TRUE))
+      }
+    }
+    )  
+  
+  # Step 4: Insert breaks based on then_break
+  result <- list()
+  
+  for (i in 1:nrow(df)) {
+    session_row <- df[i, ]
+    result[[length(result) + 1]] <- session_row
+    
+    if (!is.na(session_row$then_break) && session_row$then_break > 0) {
+      
+      break_start <- session_row$end_time
+      break_end <- break_start + minutes(session_row$then_break)
+      
+      break_type <- ifelse(session_row$then_break > 50, 
+                           "พักรับประทานอาหารเที่ยง", "พักเบรก")
+      
+      break_row <- tibble(
+        session_date = session_row$session_date,
+        start_time = break_start,
+        end_time = break_end,
+        duration_mins = session_row$then_break,
+        topic = break_type,
+        instructors = NA,
+        is_parallel = 0,
+        then_break = 0
+      )
+      
+      result[[length(result) + 1]] <- break_row
+    }
+  }
+  
+  final_df <- bind_rows(result) %>%
+    mutate(
+      start_str = format(start_time, "%H:%M"),
+      end_str = format(end_time, "%H:%M"),
+      time_range = paste0(start_str, "–", end_str),
+      duration_mins = round(as.numeric(difftime(end_time, start_time, units = "mins"))),
+      duration_text = paste0(duration_mins, " นาที"),
+      instructors = ifelse(is.na(co_instructor),
+                           instructor,
+                           paste(instructor, "/", co_instructor))
+    ) %>%
+    select(session_date, time_range, duration_text, topic, instructors)
+  
+  return(final_df)
+}
+
+```
+```{r}
+test_table <- generate_schedule_table(workshop_id_filter = "wsp2025-q1004",
+                                      data = session_data)
+```
+

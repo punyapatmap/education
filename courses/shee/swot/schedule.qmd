@@ -1,0 +1,94 @@
+---
+title: 'Workshop Schedule'
+format: pdf
+fontsize: 10pt
+---
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|Time        | Duration|Topic                                                  |Instructors                    |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|:-----------|--------:|:------------------------------------------------------|:------------------------------|
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|08:30–09:00 |       30|แนวโน้มการวิจัยทางการศึกษาวิทยาศาสตร์สุขภาพ                   |kaittiyos.kul                  |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|09:00–09:30 |       30|ที่มาและความสำคัญของปัญหา / วิธีการประเมินความเป็นไปได้ในงานวิจัย |kaittiyos.kul                  |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|10:00–10:30 |       30|วิธีการเขียนคำถามวิจัย                                      |sirinthip.kaew                 |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|10:45–11:30 |       45|ตัวแปรอิสระ ตัวแปรตาม กรอบแนวคิดการวิจัย                     |parichad.api                   |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|11:30–12:00 |       30|ตั้งชื่องานวิจัยอย่างไรให้คนอ่านเข้าใจ                           |athipat.tun                    |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|13:00–13:10 |       10|วิจัยเรา รู้หรือยังว่าทรงไหน                                  |sirinthip.kaew / kaittiyos.kul |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|14:10–14:30 |       20|วิธีอธิบายประโยชน์จากงานวิจัยให้ทุกคนสนใจ                      |athipat.tun                    |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|14:45–15:00 |       15|เอกสารและงานวิจัยในอดีต                                   |kaittiyos.kul                  |
+
+# แนวโน้มการวิจัยทางการศึกษา
+
+Date: 23 April 2025 at Siriraj Campus
+
+### Schedule
+
+|15:00–16:30 |       90|ค้นหาทฤษฎีการศึกษาอย่างไรให้คุ้มเวลา                          |sirinthip.kaew                 |
+

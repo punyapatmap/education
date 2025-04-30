@@ -8,7 +8,7 @@ project:
     - courses/shee/sharing/main_sharing.qmd
     - courses/shee/tailor/main_tailor.qmd
     - courses/thesis/thesis-timeline.qmd
-    # - courses/shee/workshop/main_workshop.qmd
+    - ed-op/blog-post/index.qmd
   resources:
     - _about/IMG_9039Jn.jpg
     
@@ -20,7 +20,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: blog.qmd
+      - href: ed-op/blog-post/index.qmd
         text: Ed Blog
       - text: Slides
         menu:

@@ -1,8 +1,7 @@
 ---
 title: "Welcome to my Ed Blog"
 listing:
-  contents:
-    - "ed-op/*.qmd"
+  contents: ed-op
   sort: "date desc"
   sort-ui: true
   filter-ui: true

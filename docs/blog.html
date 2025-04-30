@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-filename','listing-file-modified','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-filename","listing-file-modified","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -158,7 +158,7 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="./ed-op/blog-post/index.html"> 
 <span class="menu-text">Ed Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -173,6 +173,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./courses/shee/tailor/main_tailor.html">
  <span class="dropdown-text">Tailor Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./courses/thesis/thesis-timeline.html">
+ <span class="dropdown-text">Thesis timeline</span></a>
   </li>  
     </ul>
   </li>
@@ -225,14 +229,11 @@ window.Quarto = {
      <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
-         <option value="listing-filename" data-direction="asc">
-          File Name
+         <option value="listing-title" data-direction="asc">
+          Title
         </option>
-         <option value="listing-file-modified-sort" data-direction="asc">
-          Modified - Oldest
-        </option>
-         <option value="listing-file-modified-sort" data-direction="desc">
-          Modified - Newest
+         <option value="listing-author" data-direction="asc">
+          Author
         </option>
      </select>
   </div>
@@ -242,18 +243,32 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1743638320904">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1744177606925" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail">
+<p><a href="./ed-op/blog-post/index.html" class="no-external"></a></p><a href="./ed-op/blog-post/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./ed-op/blog-post/index.html" class="no-external"></a></p>
+</div>
 <div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./ed-op/blog-post/index.html" class="no-external">blog-post</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./ed-op/blog-post/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./ed-op/blog-post/index.html" class="no-external">
+<div class="list quarto-listing-default">
 
 </div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</a>
+</div>
+</div>
 <div class="metadata">
-<p><a href="./ed-op/sdt.html" class="no-external"></a></p><a href="./ed-op/sdt.html" class="no-external">
-<div class="metadata-value listing-filename">
-sdt.html
-</div>
-<div class="metadata-value listing-file-modified">
-4/3/25, 6:58:40 AM
-</div>
+<p><a href="./ed-op/blog-post/index.html" class="no-external"></a></p><a href="./ed-op/blog-post/index.html" class="no-external">
 </a>
 </div>
 </div>

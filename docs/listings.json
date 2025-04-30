@@ -1,6 +1,12 @@
 [
   {
     "listing": "/blog.html",
+    "items": [
+      "/ed-op/blog-post/index.html"
+    ]
+  },
+  {
+    "listing": "/ed-op/blog-post/index.html",
     "items": []
   }
 ]

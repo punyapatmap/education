@@ -1,0 +1,24 @@
+---
+title: 'tech jaa'
+subtitle: 'Siriraj Campus'
+format:
+  pdf:
+    documentclass: article
+    geometry: top=1cm, bottom=2cm, left=2cm, right=2cm
+    fontsize: 10pt
+    mainfont: 'TH Sarabun New'
+    keep-tex: true
+fontsize: 10pt
+tbl-colwidths: [15,15,50,20]
+mainfont: 'TH Sarabun New'
+---
+
+### 05 August 2025
+
+| Time | Duration | Topic | Instructors |
+|:-----|:---------|:------|:------------|
+| 09:00 – 10:30 | 90 minutes | เข้าใจพื้นฐานการออกแบบระบบเบื้องต้น | pongpan / vorawan |
+| 10:45 – 12:00 | 75 minutes | สร้าง Flow การส่ง Email โดยใช้ข้อมูลจาก Excel | pongpan / vorawan |
+| 13:00 – 14:30 | 90 minutes | สร้าง Flow เพิ่มตารางงานลงใน Calendar | pongpan / vorawan |
+| 14:30 – 16:00 | 90 minutes | สร้าง Flow เมื่อ Submit Microsoft Form และส่ง Email | pongpan / vorawan |
+

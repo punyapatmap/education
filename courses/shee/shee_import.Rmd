@@ -1,0 +1,230 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.
+
+```{r}
+library(googlesheets4)
+library(dplyr)
+library(stringr)
+library(lubridate)
+
+# Authenticate once
+gs4_deauth()
+gs4_auth()
+
+```
+
+```{r}
+# Read all sheets (assuming each sheet = 1 year)
+sheet_url <- "https://docs.google.com/spreadsheets/d/1ol_Nit7n6NTmCN41_7jsqvrJn-HaGosJawwg7FPqaO4"
+sheet_names <- sheet_names(sheet_url)
+```
+
+```{r}
+# Read and combine
+sheet_names_filtered <- sheet_names[sheet_names %in% as.character(57:69)]
+
+# 3. Now only map over the filtered list
+raw_data <- purrr::map_dfr(sheet_names_filtered, ~ 
+  read_sheet(sheet_url, sheet = .x) %>%
+    mutate(year = .x) # Add fiscal year
+)
+
+# View structure
+glimpse(raw_data)
+
+```
+
+```{r}
+library(dplyr)
+library(stringr)
+library(googlesheets4)
+library(purrr)
+
+# 1. Get all sheet names
+sheet_names_all <- sheet_names(sheet_url)
+
+# 2. Trim spaces
+sheet_names_all_trimmed <- str_trim(sheet_names_all)
+
+# 3. Filter sheets that are just numbers between 57 and 68
+sheet_names_filtered <- sheet_names_all_trimmed %>%
+  keep(~ str_detect(., "^[0-9]+$")) %>%      # Keep only numeric sheet names
+  keep(~ as.integer(.) >= 57 & as.integer(.) <= 69) # Keep 57 to 68
+
+sheet_names_filtered
+```
+
+```{r}
+# 4. Read sheets safely and clean EACH sheet before combining
+
+sheets_to_read <- as.character(57:69)
+
+# Create an empty list to store each year's data
+data_list <- list()
+
+# Loop through each sheet name
+for (sheet_name in sheets_to_read) {
+  cat("Reading sheet:", sheet_name, "\n")  # Optional: shows progress
+  
+  # Read and clean each sheet
+  data_list[[sheet_name]] <- read_sheet(sheet_url, sheet = sheet_name) %>%
+    mutate(across(where(is.list), as.character)) %>%   # Fix list columns
+    mutate(year = sheet_name)  # Add year column
+}
+```
+
+```{r}
+#check what's wrong
+# Force goal_aff to numeric for each sheet
+data_list <- purrr::map(data_list, ~ 
+  .x %>%
+    mutate(date = str_replace_all(date, "\\s*-\\s*", "-"),
+           goal_aff = as.numeric(goal_aff),
+           place_expense = as.double(place_expense),
+           expense = as.double(expense),
+           budget = as.double(budget),
+           registration_fee = as.double(registration_fee)) %>%
+    select(-starts_with("..."))   # <-- Remove columns like ...21, ...22
+)
+```
+
+```{r}
+# Combine all cleaned sheets together
+raw_data <- bind_rows(data_list)
+
+# 1. Fix spaces around dash
+raw_data <- raw_data %>%
+  mutate(date = str_replace_all(date, "\\s*-\\s*", "-"))
+
+glimpse(raw_data)  # Check structure
+```
+
+```{r}
+# clearn Thia date
+
+library(stringr)
+library(lubridate)
+
+# Thai month mapping
+thai_months <- c(
+  "ม.ค." = "01", "ก.พ." = "02", "มี.ค." = "03",
+  "เม.ย." = "04", "พ.ค." = "05", "มิ.ย." = "06",
+  "ก.ค." = "07", "ส.ค." = "08", "ก.ย." = "09",
+  "ต.ค." = "10", "พ.ย." = "11", "ธ.ค." = "12"
+)
+```
+
+```{r}
+parse_thai_date <- function(date_text) {
+  if (is.na(date_text) || date_text == "") return(list(start_date = NA, end_date = NA, duration_hr = NA))
+  
+  # Remove newline and squish spaces
+  date_text <- str_replace_all(date_text, "\\n", " ")
+  date_text <- str_squish(date_text)
+  
+  # Extract parts
+  parts <- str_split(date_text, " ", simplify = TRUE)
+  
+  if (ncol(parts) < 3) return(list(start_date = NA, end_date = NA, duration_hr = NA))
+  
+  day_part <- parts[1]
+  month_part <- parts[2]
+  year_part <- parts[3]
+  
+  # Check if month valid
+  if (!(month_part %in% names(thai_months))) {
+    return(list(start_date = NA, end_date = NA, duration_hr = NA))
+  }
+  
+  # Extract duration (hours)
+  duration_hr <- str_extract(date_text, "\\((\\d+) ชม.\\)")
+  duration_hr <- str_remove_all(duration_hr, "[^0-9]")
+  duration_hr <- as.integer(duration_hr)
+  
+  # Detect if "และ" exists
+  is_and_case <- str_detect(date_text, "และ")
+  
+  # Handle normally (with -) or special (และ)
+  if (is_and_case) {
+    # Example: 4 และ 8 พ.ย. 56
+    days <- str_split(day_part, "และ", simplify = TRUE)
+    day_start <- suppressWarnings(as.integer(days[1]))
+    day_end <- suppressWarnings(as.integer(days[2]))
+  } else {
+    # Normal case
+    days <- str_split(day_part, "-", simplify = TRUE)
+    day_start <- suppressWarnings(as.integer(days[1]))
+    day_end <- suppressWarnings(as.integer(ifelse(length(days) > 1, days[2], days[1])))
+  }
+  
+  # If cannot parse, return NA
+  if (is.na(day_start) || is.na(day_end)) {
+    return(list(start_date = NA, end_date = NA, duration_hr = duration_hr))
+  }
+  
+  month_num <- thai_months[[month_part]]
+  year_ad <- as.integer(year_part) + 2000 - 543
+  
+  # Build dates
+  start_date <- tryCatch(
+    as.Date(sprintf("%04d-%02d-%02d", year_ad, as.integer(month_num), as.integer(day_start))),
+    error = function(e) NA
+  )
+  
+  end_date <- tryCatch(
+    as.Date(sprintf("%04d-%02d-%02d", year_ad, as.integer(month_num), as.integer(day_end))),
+    error = function(e) NA
+  )
+  
+  return(list(start_date = start_date, end_date = end_date, duration_hr = duration_hr))
+}
+
+```
+
+```{r}
+# Apply to your data
+library(dplyr)
+library(stringr)
+
+# Parse
+parsed_dates <- purrr::map(raw_data$date, parse_thai_date)
+
+# Extract new columns
+raw_data$start_date <- purrr::map_chr(parsed_dates, "start_date")
+raw_data$end_date <- purrr::map_chr(parsed_dates, "end_date")
+raw_data$duration_hr <- purrr::map_int(parsed_dates, "duration_hr")
+
+raw_data <- raw_data %>%
+  relocate(start_date, end_date, duration_hr, .after = date)
+```
+
+```{r}
+# Fix types
+raw_data <- raw_data %>%
+  mutate(
+    start_date = as.Date(start_date),
+    end_date = as.Date(end_date)
+  )
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+library(dplyr)
+date <- raw_data %>% select(date)
+```
+
+```{r}
+saveRDS(date, file = "sheedate_data.rds")
+write.csv(date, "shee_date.csv", row.names = FALSE)
+```
