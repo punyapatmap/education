@@ -125,19 +125,26 @@ Master Adaptive Learner. (n.d.). Program in Physical Therapy. Retrieved June 10,
     
     2.  Fatalism as to the conditions of learning
     
-##
+## Latent Phase
 
-::: incremental
+| Potential difficulties                                     | Meta-cognitive question                                                  | Coaching/remediation                                                                                   |
+|------------------------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Inefficient orientation to the learning task              | [How can I quickly orient to a new learning situation?]{.fragment .fade-in} | [Limit trial-and-error learning unless it is a productive struggle designed to promote future learning]{.fragment .fade-in} |
+| Suboptimal resources identified                            | [What is an optimal resource?]{.fragment .fade-in}                         | [Identify the best resources and why they are considered as such; critical appraisal]{.fragment .fade-in} |
+| Lack of meta-cognition                                     | [How should I learn to learn?]{.fragment .fade-in}                         | [Outline the learning path ahead, using the learning curve framework as organizing metaphor]{.fragment .fade-in} |
+| Inability to structure learning in terms of time or conditions | [How do I best ration/prioritize my time?]{.fragment .fade-in}             | [Move from reactive to proactive time-planning]{.fragment .fade-in}                                      |
 
-| Learning curve phase | Potential difficulties | Meta-cognitive question | Coaching/remediation |
-|--------|-----------------------|----------------------|--------------------------|
-| **Latent phase**     | Inefficient orientation to the learning task             | [How can I quickly orient to a new learning situation?]{.fragment .fade-in}    | [Limit trial-and-error learning unless it is a productive struggle designed to promote future learning]{.fragment .fade-in}   |
-|                      | Suboptimal resources identified  | [What is an optimal resource?]{.fragment .fade-in}                             | [Identify the best resources and why they are considered as such; critical appraisal]{.fragment .fade-in}                      |
-|                      | Lack of meta-cognition                                     | How should I learn to learn?                             | Outline the learning path ahead, using the learning curve framework as organizing metaphor               |
-|                      | Inability to structure learning in terms of time or conditions | How do I best ration/prioritize my time?              | Move from reactive to proactive time-planning       |
-: Techniques for Potential Difficulties {#tbl-learning-curve tbl-colwidths="[25,25,25,25]"}
+: Techniques for Latent Phase's Difficulties {#tbl-learning-curve-1 tbl-colwidths="[20,30,50]"}
 
-:::
+## Early Rapid Learning Phase
+
+| Potential difficulties                              | Meta-cognitive question                                                                 | Coaching/remediation                                                                                                   |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Intoxication by superficial approaches to learning  | [When should learning be rapid? When should it be desirably difficult?]{.fragment .fade-in} | [Guide learning decisions based on longer-term retention rather than immediate gains]{.fragment .fade-in}             |
+| Learning overly oriented to routinization           | [Is my goal routinized or adaptive expertise?]{.fragment .fade-in}                         | [Create conditions for adaptive expertise including emphasis on deeper mechanisms, experience with variability, and productive failure]{.fragment .fade-in} |
+| Overconfidence (Dunning-Kruger effect)              | [How can I reliably assess my performance?]{.fragment .fade-in}                            | [Calibrate the learner’s insight into their performance with external measures]{.fragment .fade-in}                   |
+                |
+: Techniques for Early Rapid Learning phase's difficulties {#tbl-learning-curve-2 tbl-colwidths="[20,30,50]"}
 
 # The Learner's Experience of Remediation
 

@@ -7,6 +7,7 @@ project:
     - blog.qmd
     - courses/shee/sharing/main_sharing.qmd
     - courses/shee/tailor/main_tailor.qmd
+    - courses/shee/workshop/main_workshop.qmd
     - courses/thesis/thesis-timeline.qmd
     - ed-op/blog-post/index.qmd
   resources:
@@ -27,7 +28,7 @@ website:
           - sidebar:shr
           - sidebar:tlr
           - sidebar:ths
-          # - sidebar:wsh
+          - sidebar:wsh
       
   sidebar:
     - id: shr

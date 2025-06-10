@@ -6,9 +6,13 @@ format:
   html: 
     page-layout: full
 ---
-::: {.column-screen}
 
+:::: column-screen
+```{=html}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+```
+
+```{=html}
 <script>
 let particles = [];
 const num = 1000;
@@ -86,7 +90,8 @@ function onScreen(v) {
   return v.x >= 0 && v.x <= width && v.y >= 0 && v.y <= height;
 }
 </script>
+```
 
-<div id="canvasForHTML"></div>
-
+::: {#canvasForHTML}
 :::
+::::
