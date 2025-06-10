@@ -1,0 +1,53 @@
+---
+title: "assumption_statistics"
+author: "Punyapat Maprapho"
+format: revealjs
+---
+
+# Assumption
+
+## Assumptions
+
+***Linear Models***
+
+1.  t-test
+2.  ANOVA
+3.  Linear correlation
+4.  Linear regression
+
+## 2 main assumptions for linear models
+
+1.  Normality assumption
+2.  Homogeneity
+
+## Are my data Normally distribution
+
+1.  Histogram
+2.  Normal probability plot
+3.  Descriptive statistics
+    1.  2/3 of observation lie within 1 std dev of mean
+    2.  95% of observation lie within 2 std dev of mean
+4.  Kolmogorov-Smirnov (Sample size dependent not good for too small or too large)
+
+## The Normal Probability Plot
+
+## Formal test
+
+::: {.callout-note}
+H0 = normal
+H1 = not normal
+:::
+
+# Homogenous
+
+## Are my variances homogenous
+1.
+2.Equality of variance F-Test
+3. Levene test
+3. Null hypothesis
+
+# Take home message
+You need to do either **Transfrom your outcome variable** or **use non-parametric test** when
+1. Sample size is small AND non-normal outcome
+2. Sample size are unequal AND variances are non-homogenous
+

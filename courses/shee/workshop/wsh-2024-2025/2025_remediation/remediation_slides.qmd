@@ -1,0 +1,157 @@
+---
+title: "Remediation"
+format: 
+  revealjs:
+    scrollable: true
+---
+
+# Overview and Framing of Remediation
+
+## When and what to remediate?
+
+![Remediation takes place in a zone between regular practice and failure. Adapted from Ellaway et al. 2017 and Kalet et al. 2017](images/Screenshot%202025-06-10%20at%2010.45.27.png){#fig-remediation-zone}
+
+## Area to focus in remediation
+
+![For any given remediation, we might need to remediate more than just the individual](images/Screenshot%202025-06-10%20at%2010.47.16.png){#fig-remediation-factors}
+
+# Learning Disabilities vs. Learning Differences
+
+## What are Learning Disability?
+
+-   Reading disorder (dyslexia)
+-   Mathematics disorder (dyscalculia)
+-   Disorder of written expression (dysgraphia)
+-   Language disorders (receptive and/or expressive)
+-   Attention deficit/hyperactivity disorder
+-   Executive function deficit
+-   Autism spectrum disorder/nonverbal learning disorder
+
+## What are Learning Differences?
+
+# Phases in Remediation
+
+## Phases in Remediation
+
+::: incremental
+1.  Setting Up the Institution’s Remediation Process
+2.  Structural Elements of the Remediation Process
+3.  Supporting the Ultimate Decision
+:::
+
+## 
+
+### 1st Phase - Setting Up the Institution’s Remediation Process
+
+::: incremental
+1.  ***Goal 1A***: Uphold the Professional Standard, While Maintaining Empathy for Individual Learners’ Struggles
+
+2.  ***Goal 1B***: Ensure That Admissions and Selection Processes Correspond with Desired Outcomes - Diversity!
+
+3.  ***Goal 1C***: Transparently Align Instructional Paradigms with Defined Outcomes
+
+4.  ***Goal 1D***: Cultivate Effective Support Systems - Mentoring and a Culture of Feedback
+:::
+
+## Phases in Remediation
+
+[1. Setting Up the Institution’s Remediation Process]{.fragment .semi-fade-out}
+
+[2. Structural Elements of the Remediation Process]{.fragment .highlight-red}
+
+## 
+
+### 2nd Phase - Structural Elements of the Remediation Process
+
+# Diversity, Inclusion, and Remediation (DIR)
+
+## Strategy Examples
+
+### Counterstereotypic imaging {.scrollable}
+
+::: incremental
+
+-   **Visualizing positive exemplars of minoritized groups**
+    -   abstract (e.g., photos or symbols)
+    -   well-known
+    -   direct (from people you know)
+-   **Individuation**
+    -   Spending one-on-one time meeting with individuals about whose identities you have biases or who have different life experiences, rather than making generalized assumptions about them as part of their minoritized group 
+- **Perspective taking**\
+    -   Finding respectful ways to inhabit viewpoints of people in marginalized groups (e.g., watching a documentary or reading a thought piece)
+-   **Values affirmation**
+    -   Reinforcing values of equity, both as a mental subroutine and explicitly to learners
+    -   Framing every encounter with a URHP learner as a commitment to equity and fairness reinforces those values
+    
+:::
+
+# The Metacognitive Competency
+
+## Master Adaptive Learner
+
+![Master Adaptive Learner Adapted version from Cutere et al 2012-retrieved as footer](https://pt.wustl.edu/app/uploads/2020/08/MAL_gears.png){#fig-MAL}
+
+::: footer 
+Master Adaptive Learner. (n.d.). Program in Physical Therapy. Retrieved June 10, 2025, from https://pt.wustl.edu/education/doctor-of-physical-therapy/degree-requirements-curriculum/master-adaptive-learner/
+:::
+
+## The Learning Curve
+
+![Prototypical Learning Curve. A prototypical learning curve demonstrating how learning effort is related to learning outcomes.](images/Screenshot%202025-06-10%20at%2011.29.36.png){#fig-learning-curve}
+
+## Potential difficulties for each phase of the learning curve {.scrollable}
+
+1.  **Latent phase**
+
+    1.  Inefficient orientation to the learning task
+
+    2.  Suboptimal resources identified
+
+    3.  Lack of meta-cognition
+
+    4.  Inability to structure learning in terms of time or conditions
+
+2.  **Early rapid learning**
+
+    1.  Intoxication by superficial approaches to learning
+
+    2.  Learning overly oriented to routinization
+
+    3.  Overconfidence (DunningKruger effect)
+    
+3. **Inflection pointlearning slows and Asymptotic learning**
+
+    1.  Misinterpretation of slowing as achieving competency or mastery
+    
+    2.  Fatalism as to the conditions of learning
+    
+##
+
+::: incremental
+
+| Learning curve phase | Potential difficulties | Meta-cognitive question | Coaching/remediation |
+|--------|-----------------------|----------------------|--------------------------|
+| **Latent phase**     | Inefficient orientation to the learning task             | [How can I quickly orient to a new learning situation?]{.fragment .fade-in}    | [Limit trial-and-error learning unless it is a productive struggle designed to promote future learning]{.fragment .fade-in}   |
+|                      | Suboptimal resources identified  | [What is an optimal resource?]{.fragment .fade-in}                             | [Identify the best resources and why they are considered as such; critical appraisal]{.fragment .fade-in}                      |
+|                      | Lack of meta-cognition                                     | How should I learn to learn?                             | Outline the learning path ahead, using the learning curve framework as organizing metaphor               |
+|                      | Inability to structure learning in terms of time or conditions | How do I best ration/prioritize my time?              | Move from reactive to proactive time-planning       |
+: Techniques for Potential Difficulties {#tbl-learning-curve tbl-colwidths="[25,25,25,25]"}
+
+:::
+
+# The Learner's Experience of Remediation
+
+# A Stepwise Approach to Remediation for the Frontline
+
+## 4 Steps Approach
+
+1.  Identification
+2.  Clarification
+3.  Intervention
+4.  Assessment
+
+## 
+
+### Identification
+
+Example of PEARLS Framework

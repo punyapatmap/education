@@ -1,0 +1,1110 @@
+---
+title: "statistic course"
+---
+
+Objective
+- Understand
+- Analyse our own data
+
+# What will you learn in these 3 course series
+
+## Approaching, Describing, and visualizing data
+* Introduction to statistical programming
+* descriptive statistics
+* measures of disease association 
+* measures of association for quantitative traits
+* data visualization.
+
+## Statistics in Medicine II: 
+* Probability theory andstatistical inferenceTopics: Basic probability, Bayes’ theorem, computer simulation, probability distributions, confidence intervals, hypothesis testing, sample size and power, Bayesian inference, pitfalls of p-values.
+
+## Statistics in Medicine III: Statistical tests andregression models
+
+Topics: Statistical tests for comparing groups, handling correlated observations, principles and pitfalls of regression analysis, linear regression, logistic regression, Poisson regression, Cox regression, data visualization
+
+# Course I
+
+## Pretest
+
+```{r}
+# Hours per night
+hours <- c(5, 6, 7, 8, 9, 10)
+
+# Corresponding frequencies
+freq <- c(3, 8, 20, 11, 6, 2)
+
+# Multiply hours by frequency
+weighted_sum <- sum(hours * freq)
+
+# Total number of responses
+total <- sum(freq)
+
+# Calculate mean
+mean_hours <- weighted_sum / total
+
+# Round to 1 decimal place
+mean_hours_rounded <- round(mean_hours, 1)
+
+# Print result
+mean_hours_rounded
+```
+
+## Overview
+
+There are 4 units of this course
+1. Introduction to R (only to analysis the data effectively)
+2. How to think about data
+3. Basic of all the study design
+4. Measure of association
+
+Quote
+>[Use common sense! Draw lots of pictures]
+
+Let see this example, what do you feel about this part of the abstract
+> The treatment resulted in improvement in all (100%; n= 10) of the subjects. 78% were graded as having either excellent or moderate improvement.
+
+## Handling the data
+```{r}
+# Import the excel file
+library(readxl)
+??readxl
+```
+
+
+<!-- # 1st Homework -->
+<!-- ```{r} -->
+<!-- library(readxl) -->
+<!-- classdata <- read_excel("~/Library/Mobile Documents/com~apple~CloudDocs/Cloud Downloads/classdata.xlsx") -->
+<!-- View(classdata) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- str(classdata) -->
+<!-- summary(classdata) -->
+<!-- head(classdata, 5) -->
+<!-- ``` -->
+
+## Unit 2 - How to think about data, look at, describe data
+
+Let see this data and think about it for a second.
+> Intervention 1 (n=10) summative score improves about 34 points (out of 250)
+> Intervention 2 (n=10) summative score improves about 18.5 points (out of 250)
+
+:::{.callout-note}
+Look at the data, make sense of missing data first!
+:::
+
+### 3 Main type of variables
+#### Quantitative variable
+1. Continuous
+2. Discrete
+
+#### Categorical variable
+1. Binary (0,1)
+2. Ordinal
+  1. Likert Scale
+  2. Disease stage
+3. Nominal
+
+#### Time-to-event variable
+?? My question is what about the cohort that follow the quantitative data? What is this type of variable
+
+### Good habit! Check distribution of your data
+We count this as good habit because of 3 reasons, and do this early on would save you so much time later
+1. Are there outliner?
+2. Are there any manual entry mistakes?
+3. What are the distribution of the data?
+
+#### How should we plot to the data
+Quantitative/continuous variables
+1. Box plot
+2. Histogram
+
+Categorical data
+1. Bar chart
+2. Pie chart
+
+Let see some of the data
+```{r}
+#|label: fig-exercise-boxplot
+#|fig-cap: "Hour of execise/week of Siriraj Students"
+
+library(car)
+Boxplot(exercise, 
+        data = classdata)
+```
+##Mean or Median?
+Let go back to our example 1
+
+```{r}
+grA <- c(4, 3, 0, -3, -4, -5, -11, -14, -15, -200)
+grB <- c(-8, -10, -12, -16, -18, -20, -21, -24, -26, -30)
+
+mean(grA)
+mean(grB)
+
+median(grA)
+median(grB)
+
+t.test(grA, grB)
+wilcox.test(grA, grB)
+```
+# Homework 4
+```{r}
+colnames(classdata)
+median(classdata$exercise)
+```
+```{r}
+library(dplyr)
+
+classdata <- classdata %>%
+  mutate(high_exercise = ifelse(exercise > 3.25, 1, 0))
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(classdata, aes(x = high_exercise, y = sleep)) +
+  geom_boxplot(outlier.shape = NA) +  # Hide boxplot outliers so they don't overlap with dots
+  geom_jitter(aes(color = high_exercise), width = 0.2, size = 2) +  # Add dot plot
+  scale_color_manual(values = c("0" = "red", "1" = "blue")) +  # Color settings
+  labs(
+    title = "Sleep Hours by Exercise Group",
+    x = "Exercise Group",
+    y = "Sleep Hours",
+    color = "Exercise Group"
+  ) +
+  theme_minimal()
+
+```
+
+```{r}
+# Create boxplot
+boxplot(classdata$wakeup ~ classdata$high_exercise,
+        col = "white",  # no fill
+        border = "black",
+        xlab = "High exercise, yes/no",
+        ylab = "Wakeup time")
+
+stripchart(classdata$wakeup ~ classdata$high_exercise,
+           vertical = TRUE,
+           method = "jitter",
+           pch = 19,
+           col = c("red", "blue")[as.factor(classdata$high_exercise)],
+           add = TRUE)
+```
+
+```{r}
+# Separate wakeup times by group
+wakeup_high <- classdata$wakeup[classdata$high_exercise == 1]
+wakeup_low <- classdata$wakeup[classdata$high_exercise == 0]
+
+# Calculate group means and standard deviations
+mean_high <- mean(wakeup_high, na.rm = TRUE)
+mean_low <- mean(wakeup_low, na.rm = TRUE)
+
+sd_high <- sd(wakeup_high, na.rm = TRUE)
+sd_low <- sd(wakeup_low, na.rm = TRUE)
+
+# Pooled SD (simple average, since groups are equal size)
+sd_pooled <- (sd_high + sd_low) / 2
+
+# Cohen's d
+cohen_d <- (mean_high - mean_low) / sd_pooled
+
+# Print rounded result
+round(cohen_d, 2)
+
+table(classdata$high_exercise)
+summary(classdata$wakeup)
+tapply(classdata$wakeup, classdata$high_exercise, summary)
+
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(classdata, aes(x = exercise, y = wakeup)) +
+  geom_point(alpha = 0.6) +  # scatter points
+  geom_smooth(method = "loess", span = 0.7, se = FALSE, color = "blue") +  # loess line
+  labs(
+    x = "Exercise Hours per Week",
+    y = "Wake-up Time (hours)",
+    title = "Wake-up Time vs. Weekly Exercise"
+  ) +
+  theme_minimal()
+
+
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(classdata, aes(x = wakeup, fill = factor(high_exercise))) +
+  geom_histogram(position = "identity", alpha = 0.3, bins = 8) +
+  scale_fill_manual(values = c("red", "blue"), 
+                    labels = c("Low Exercise", "High Exercise"),
+                    name = "Exercise Group") +
+  labs(
+    title = "Wake-up Time by Exercise Group",
+    x = "Wake-up Time (hours)",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+```
+```{r}
+# Hours and corresponding frequencies
+hours_per_night <- c(5, 6, 7, 8, 9, 10)
+frequencies <- c(3, 8, 20, 11, 6, 2)
+
+# Create full dataset of individual values
+sleep_data <- rep(hours_per_night, times = frequencies)
+
+# View the first few entries
+head(sleep_data)
+
+# Check that the length matches the total (should be 50)
+length(sleep_data)  # should return 50
+
+# View frequency table
+table(sleep_data)
+
+sleep_df <- data.frame(hours = sleep_data)
+```
+
+#Homework 2
+## Section 1
+```{r}
+sleep_data <- rep(c(5, 6, 7, 8, 9, 10), times = c(3, 8, 20, 11, 6, 2))
+sleep_df <- data_frame(sleep_data)
+
+summary(sleep_df)
+mean(sleep_df$sleep_data)
+IQR(sleep_df$sleep_data)
+sd(sleep_df$hours)
+
+```
+
+## Section 2-flip coin
+```{r}
+flipcoin <- rep(c(0,1), times = c(47,53)) #{0=tails, 1=heads}
+mean(flipcoin)
+sd(flipcoin)
+quantile(flipcoin, probs = 0.9)
+```
+## Section 3 Class dataset
+```{r}
+mean(classdata$coffee)
+summary(classdata$coffee)
+hist(classdata$coffee)
+```
+
+# Homework 3
+## From the paper
+```{r}
+(25/75)/(17/83)
+```
+
+The following results are from the abstract of a retrospective cohort study that examined factors associated with high-cost hospitalizations for patients with chronic obstructive pulmonary disease (COPD). High-cost hospitalizations were defined as those in the top 20% (top quintile) of costs.
+
+“Factors associated with highest costs for COPD care included intensive care unit admission (odds ratio [OR] 32.4; 95% confidence interval [CI] 20.3, 51.7), death in hospital (OR 2.6; 95% CI 1.3, 5.2), discharge to long-term care facility (OR 5.7; 95% CI 3.5, 9.2), and use of the alternate level of care designation during hospitalization (OR 23.5; 95% CI 14.1, 39.2).” From: Mulpuru, Sunita, et al. "Factors contributing to high-cost hospital care for patients with COPD." International journal of chronic obstructive pulmonary disease 12 (2017): 989.
+
+The odds ratio given for admissions to the intensive care unit is 32.4. Among those not admitted to the ICU, 14% incurred high-cost hospitalizations. What percent of those admitted to the ICU incurred high-cost hospitalizations? Hint: You will need to convert the odds ratio to a risk ratio to solve this problem; to do this, use the conversion formula or online calculator given below.
+
+# Final Exam
+
+The following question should be done in SAS or R. Use the same classdata dataset that we have been using for the computer labs and homework in this course. What is the correlation coefficient between feelings about Reagan and feelings about Clinton?
+```{r}
+clin_reagan_corr <- cor(classdata$clinton, classdata$reagan,
+                        use = "pairwise.complete.obs")
+clin_reagan_corr
+```
+
+The following question should be done in SAS or R. Use the same classdata dataset that we have been using for the computer labs and homework in this course. What was the number of participants who had non-missing values for the variable “carter” (feelings about former President Jimmy Carter).
+```{r}
+sum(!is.na(classdata$carter))
+```
+
+## Q6
+The mean score on a final exam was 70 points with a standard deviation of 11. What is the Z score for a student who got a 54? In other words, how many standard deviation units above or below the mean is this student?
+```{r}
+# Define values
+score <- 54
+mean_score <- 70
+sd_score <- 11
+
+# Calculate Z-score
+z <- (score - mean_score) / sd_score
+
+# Print result
+z
+
+```
+##Q7
+A study measures participants’ difficulty in walking on a scale from 0 to 5, where 0 means no difficulty walking and 5 means extreme difficulty walking. In this study, 93% of participants rated their difficulty walking as a 4 and 7% rated their difficulty walking as a 5 at the start of the study. What is the mean value for difficulty walking among participants in the study?
+
+*Interpretation*
+93% rated difficulty as 4
+7% rated difficulty as 5
+
+```{r}
+
+```
+
+
+##Q8
+
+##Q15
+```{r}
+q14 <- c(1, 5, 5, 7, 8, 9, 10, 10, 11, 12)
+sd(q14)
+
+q15 <- c(10, 9, 9, 15, 16, 17, 14, 8, 2, 1)
+median(q15)
+```
+
+##Q19
+```{r}
+IQR(classdata$wakeup)
+```
+
+# Module 2 - How to Think About, Look At, and Describe Data
+## Lead in lipstick
+Lead in Lipstick
+    00:05 - In this next module,
+    00:07 - we're going to use real data to answer
+    00:09 - a real clinical question using all the skills that you've learned this week.
+    00:14 - This example goes all the way back to 2007.
+    00:17 - There was a consumer group that tested about 33 lipsticks for lead,
+    00:22 - and they were able to find detectable amounts of lead in many of the lipsticks tested.
+    00:27 - Here are some of the headlines that came out then.
+    00:30 - Lipsticks contain excessive lead, tests reveal.
+    00:33 - One third of lipsticks on the market contain high lead.
+    00:36 - They characterized the lead content as high or excessive,
+    00:40 - and here's their justification for that.
+    00:43 - In the report, they say that one third of the,
+    00:45 - of the lipsticks tested contained an amount of lead that exceeded the
+    00:50 - US Food and Drug Administration's 0.1. part per million limit for lead in candy.
+    00:57 - I'm actually going to be using the units today of one microgram
+    01:01 - per gram because one microgram is one millionth of a gram.
+    01:06 - But that was their concern,
+    01:08 - that lead in lipstick exceeded the limits for lead in candy.
+    01:13 - The FDA actually followed up and did a study in 2009.
+    01:17 - They deviced an ultrasensitive detection method for finding lead in lipstick.
+    01:22 - In fact, their method is so sensitive that it detects
+    01:26 - types of lead that actually can't be absorbed by the body.
+    01:29 - It's an overly conservative method of detecting lead.
+    01:33 - They first did a small study using this method in 2009.
+    01:37 - They then followed up with a larger study of 400 lipsticks in 2012.
+    01:43 - You can see some of the headlines that came out in 2012,
+    01:46 - it made the Washington Post and Time Magazine.
+    01:49 - Those headlines might make women think
+    01:51 - that they should be worried about lead in their lipstick.
+    01:54 - We're going to try to answer the question,
+    01:56 - how worried should women be?
+    01:59 - Of course, the real question here is not whether or not
+    02:03 - there is lead in lipstick because lead is something that's found everywhere;
+    02:06 - in food, in water, in the air.
+    02:08 - The important question here is how much lead are women getting from their lipstick?
+    02:14 - That's the question that we're going to try to answer.
+    02:18 - To answer that question,
+    02:20 - we need three pieces of data.
+    02:21 - We need to know the concentration of lead in lipstick.
+    02:24 - Fortunately, we have that data from the FDA's study of 400 lipsticks.
+    02:29 - We also need to know how much lipstick do women use every day.
+    02:33 - It turns out that there's a European study on the use
+    02:37 - of cosmetics in women that nicely addresses that question.
+    02:40 - Finally, we need to know,
+    02:42 - out of the lipstick that women apply every day,
+    02:44 - how much do they actually end up eating?
+    02:47 - There isn't good data on that out there,
+    02:49 - but we can make some reasonable guesses.
+    02:52 - Here's the data from the FDA's 2009 study.
+    02:57 - This was the small study they did on
+    02:59 - just 22 lipsticks using their ultrasensitive detection method.
+    03:03 - They were able to detect some amount of lead in every lipstick tested.
+    03:08 - They actually found higher concentrations than the consumer group
+    03:11 - had found because their detection method was more sensitive.
+    03:15 - We learned about histograms and descriptive statistics this week,
+    03:18 - so this is a great chance to apply those concepts to real data.
+    03:22 - Here's the histogram for those 22 lipsticks.
+    03:25 - First of all, notice that the distribution is right skewed.
+    03:29 - Notice also that the mean amount of lipstick is about 1.07,
+    03:35 - whereas the median is 0.73.
+    03:38 - The mean is higher than the median because the distribution is right skewed,
+    03:42 - the mean is being pulled higher by the observations in the right tail.
+    03:47 - The standard deviation here was about one,
+    03:50 - and the maximum value was three micrograms per gram of lead.
+    03:55 - You can look at also, at the percentiles there.
+    03:58 - The FDA repeated this study with 400 lipsticks in 2012.
+    04:03 - Here's that distribution.
+    04:04 - It's also right-skewed.
+    04:06 - Notice also that the mean, median,
+    04:09 - and standard deviation are quite similar to the 2009 data.
+    04:13 - In fact, we can directly compare the values from those two studies.
+    04:17 - Those two studies used similar methods.
+    04:20 - The only real difference is that the second study is much larger.
+    04:24 - Interestingly, the two studies found almost the same mean, 1.07 versus 1.11.
+    04:31 - They found extremely similar standard deviations, 0.96 and 0.97.
+    04:35 - The medians were also similar, 0.73 and 0.89.
+    04:39 - This ju- just goes to show why we can do statistics.
+    04:43 - By the time you've taken even a relatively small sample,
+    04:47 - you start to hone in on what the actual values are.
+    04:51 - The advantage of taking a larger sample,
+    04:53 - of course, is you get more precision.
+    04:56 - The one thing that changes a lot from
+    04:58 - the 2009 study to the 2012 study is the maximum value.
+    05:04 - It goes from three in 2009 to seven in 2012.
+    05:08 - Now your instinct might be to conclude that the amount of lead in
+    05:12 - lipstick jumped from 2009 to 2012, but that's not correct.
+    05:17 - The reason that we're detecting a bigger maximum in
+    05:21 - the larger sample is simply that we have a right skewed distribution.
+    05:25 - That means that there are some infrequent occurrences of very high concentrations.
+    05:31 - When you sample only 22,
+    05:34 - if those very high concentration lipsticks occur, only,
+    05:38 - say one out of every couple of 100 lipsticks,
+    05:41 - it's very unlikely that in a sample of 22,
+    05:44 - you're going to find one of those.
+    05:46 - But when you sample more observations,
+    05:48 - you're going to see those rare events.
+    05:51 - Notice that, uh, the 99th percentile was also slightly higher in the 2012 sample,
+    05:57 - but the rest of the percentiles are quite similar.
+    05:59 - It's very interesting to see that with a larger sample,
+    06:02 - you get very similar descriptive statistics.
+    06:08 - We're going to use the data from the sample of 400 for
+    06:12 - the rest of the exercise in this module because it's more precise.
+    06:16 - I also wanna show you the box plot of lead from those 400 lipsticks,
+    06:21 - since we talked about box plots this week.
+    06:23 - You can see the interquartile range is quite narrow,
+    06:26 - but we have outliers that are out in the high range.
+    06:29 - We can use these data to answer the first question,
+    06:32 - what is the amount of Lead in lipstick?
+    06:34 - The next thing we need to know is how much lipstick
+    06:37 - are women actually applying on a daily basis?
+    06:40 - It turns out there was a large European study that answers this question.
+    06:44 - We can look at some nice histograms and descriptive statistics.
+    06:48 - I'm actually going to zoom in on these,
+    06:50 - so they are easier to see.
+    06:51 - On the left-hand side is the histogram,
+    06:54 - on the right-hand side are the descriptive statistics.
+    06:57 - The distribution of lipstick exposure,
+    07:00 - how much lipstick women ar- are applying daily also has a very nice right skew.
+    07:04 - Most women use small to moderate amounts of lipstick daily.
+    07:08 - Notice that the amount of daily exposure,
+    07:12 - the units for that is on the histogram is grams per day.
+    07:15 - In the descriptive statistics,
+    07:16 - it's given as milligrams per day.
+    07:17 - That's why those numbers don't match because they're different units.
+    07:21 - These statistics represent 30,000 women.
+    07:24 - The mean exposure was 24.6 milligrams of lipstick per day,
+    07:29 - the median was 17.1,
+    07:31 - the maximum was almost 218 milligrams of lipstick per day.
+    07:38 - Just to give you a sense of what those numbers mean,
+    07:41 - one in 30,000 women from this study used 218 milligrams of lipstick per day.
+    07:48 - How much lipstick is that?
+    07:49 - Well, one tube of lipstick contains four grams of lipstick or 4,000 milligrams.
+    07:57 - So a woman who is using 218 milligrams per day would go through
+    08:02 - an entire tube all the way down to the very bottom in roughly 18 days,
+    08:07 - much faster than a typical woman would go through a tube of lipstick.
+    08:12 - Now I'm going to ask you to try some calculations on your own.
+    08:16 - In a minute, I'll have you pause the video and try to calculate two things.
+    08:20 - The typical daily a- amount of exposure to lead,
+    08:24 - uh, and the highest exposure to lead that women get from ingesting lipstick.
+    08:29 - I want you to assume that women end up
+    08:32 - eating half of their lipstick that they apply daily.
+    08:35 - This seems like a reasonable assumption since a lot
+    08:37 - of lipstick comes off in closed cups and so on.
+    08:40 - Use the values given on the screen to calculate typical lead exposure,
+    08:45 - you wanna use the median values to calculate maximum exposure,
+    08:50 - you wanna use the maximum values.
+    08:52 - Now pause the video and attempt the calculation.
+    08:55 - And then restart the video,
+    08:56 - and I'll walk you through it.
+    09:04 - So how would we calculate this?
+    09:06 - First of all, for typical exposure,
+    09:09 - the typical concentration of lead in lipstick is 0.89 micrograms per gram.
+    09:16 - The typical woman uses 17.11 milligrams of lipstick daily.
+    09:22 - Notice, we have all different units here and we have to convert things.
+    09:25 - We wanna end up with the total daily exposure in micrograms.
+    09:29 - So I wanna cancel out the milligrams and the grams.
+    09:32 - So I can just multiply by one,
+    09:34 - and one gram over 1,000 milligrams is equal to 1 because 1,000 milligrams is a gram.
+    09:40 - So notice we can then cancel out the milligrams,
+    09:42 - we cancel out the grams,
+    09:44 - and we multiply across,
+    09:45 - and we end up with 0.0152 micrograms of lipstick daily.
+    09:51 - That's just how much a woman is exposed to in total,
+    09:54 - including on her skin and how much she ingests.
+    09:57 - We wanna divide that by two,
+    09:59 - assuming that she doesn't eat all of the lipstick that she applies,
+    10:02 - and she probably is ingesting about 0.0076 micrograms of lead from lipstick daily.
+    10:10 - That's the typical user. For the highest user,
+    10:14 - we have to use the maximum values.
+    10:16 - So the maximum amount of lead in lipstick with 7.19 micrograms per gram.
+    10:22 - The maximum lipstick applied was about 217 milligrams.
+    10:27 - We convert the units and we see that the highest user has
+    10:31 - a daily exposure of 1.56 micrograms.
+    10:34 - She's eating only probably about half of that,
+    10:36 - so that would be 0.78 micrograms.
+    10:39 - Now, how many women does this highest usage apply to?
+    10:44 - We can calculate that.
+    10:47 - We know that one in 30,000 women applies this much lipstick daily.
+    10:53 - And only one in 400 lipsticks have this very high level of lead.
+    10:58 - I think it's reasonable to assume that there is no relationship between,
+    11:02 - uh, how much lipstick a woman uses in the lead content,
+    11:05 - content of her lipstick.
+    11:06 - Women certainly are not choosing their lipsticks based on how much lead they have in it.
+    11:11 - So we can just multiply these two quantities to find out
+    11:14 - the chance that a woman will use this much lipstick,
+    11:17 - and we multiply one- 30,000 times one out of 400,
+    11:21 - we get one woman out of 12 million.
+    11:25 - We would expect that just one in 12 million woman- women
+    11:29 - would have this upper limit of exposure to lead from lipstick.
+    11:34 - Let's put those numbers in perspective.
+    11:37 - The FDA says that the provisional,
+    11:40 - tolerable daily intake of lead for an adult is 75 micrograms per day.
+    11:45 - Remember, you get lead from everything,
+    11:47 - food, water, and air.
+    11:50 - This is what the FDA says would be a safe amount.
+    11:52 - Obviously, we're trying to shoot for even lower than this,
+    11:55 - but this is the, what FDA puts out as a safe amount.
+    11:59 - This means that the 0.0076 micrograms,
+    12:04 - the typical exposure to lead in lipstick is just
+    12:07 - 0.02 percent of your provisional tolerable daily intake.
+    12:11 - In other words, it's a drop in the bucket.
+    12:13 - It's so small it makes no difference.
+    12:15 - Even if you look at that very high exposure,
+    12:19 - that one in 20- one in 12 million women who get 0.78 micrograms per day.
+    12:25 - That's still just one percent of your provisional tolerable daily intake.
+    12:31 - And that only applies to one in 12 million women.
+    12:33 - We can use another point of comparison.
+    12:36 - The average American consumes one to four micrograms of lead per day from food.
+    12:42 - This is actually really good.
+    12:44 - If you compare it to a decade ago,
+    12:46 - that number was a lot higher a decade ago.
+    12:48 - The lead in our food supply has dramatically
+    12:51 - decreased in past decades due to good regulations.
+    12:54 - Again, though, the typical amount from lipstick is hundreds of times less than this.
+    13:00 - And even the maximum possible exposure from lipstick,
+    13:03 - which only affects one in 12 million women,
+    13:05 - is still less than how much you're getting from food.
+    13:10 - Remember the consumer group used the comparison of
+    13:14 - lead limits in candy to justify their concern about lead in lipstick.
+    13:18 - They said they were concerned about the amount of
+    13:20 - lead in lipstick because the FDA puts a limit on
+    13:23 - candy of 0.1. parts per million or 0.1 micrograms per day of lead.
+    13:29 - And let's for a minute looks specifically at chocolate.
+    13:33 - The median level of lead in milk chocolate in the US is 0.014 micrograms per day,
+    13:41 - according to one recent study.
+    13:44 - So if you just compare the concentration
+    13:47 - of lead and lipstick to the concentration in chocolate,
+    13:50 - indeed, the chocolate is much,
+    13:52 - much less lower concentration than we're seeing in lipstick.
+    13:56 - Of course, however, there's a difference between these two things.
+    14:00 - You eat chocolate sometimes in large quantities if you're me,
+    14:03 - but you're not intentionally eating large quantities of lipstick.
+    14:07 - We have to account for that.
+    14:09 - A bar of chocolate has about 43 grams of chocolate.
+    14:13 - So we can calculate the exposure you would get to lead from eating one bar of chocolate.
+    14:18 - Just multiply the 0.1 for concentration times the 43 grams,
+    14:23 - you get 0.6 micrograms of lead,
+    14:26 - you're- that's what you're getting when you eat one bar of chocolate.
+    14:29 - This is actually similar to the amount of exposure that you would get from
+    14:32 - lipstick if you were that one in 12 million women,
+    14:36 - who had that absolutely highest exposure.
+    14:38 - And that's just for one chocolate bar per day.
+    14:41 - We can also look at the typical daily exposure to lead from chocolate.
+    14:46 - The average American apparently consumes 13.7 grams of chocolate per day.
+    14:52 - I base that statistic on a statistic from the International Cocoa Organization,
+    14:56 - which says that the average American eats 11 pounds of chocolate per year.
+    15:00 - I'm not sure that's the most reliable source,
+    15:03 - but it seems pretty reasonable to me.
+    15:05 - I know I certainly eat more than 13.7 grams per- of chocolate per day,
+    15:09 - uh, that's roughly just a chocolate bar every couple of days.
+    15:13 - So we can calculate out that the typical daily exposure to lead
+    15:18 - from chocolate in Americans is 0.19 micrograms.
+    15:24 - So you can compare the daily exposure from chocolate to the daily exposure from lipstick.
+    15:30 - And the typical daily exposure from chocolate is
+    15:32 - 25 times the typical exposure that you're gonna get from lipstick.
+    15:37 - Even if you go up to that extreme daily exposure to lead,
+    15:40 - that 0.78 micrograms, that's similar to
+    15:43 - the exposure that you would get if you just ate one bar of chocolate daily.
+    15:48 - So I think we can safely conclude that
+    15:51 - the amount of lead in lipstick isn't something that a woman,
+    15:54 - even a pregnant woman,
+    15:55 - has to be concerned about.
+    
+# Module 3 - Basic of study design
+    00:09 - In this next module,
+    00:11 - I'm gonna give a brief introduction to the different types of
+    00:14 - study designs that are used in medical research.
+    00:16 - This is not a course in study design.
+    00:18 - However, I am going to be throwing around terms like cross-sectional study,
+    00:22 - cohort study, randomized trial.
+    00:24 - So it's important that you're familiar with those terms.
+    00:27 - It's always important to interpret the data in
+    00:30 - the context of the study design from which it was collected.
+    00:34 - So studies can be broken down into two major types, observational and experimental.
+    00:41 - Observational studies are studies where the investigator just observes the participants.
+    00:46 - They don't intervene in any way.
+    00:47 - Experimental studies, the investigator actually intervenes in some way.
+    00:51 - The classic experimental study is the randomized controlled trial,
+    00:55 - and that's considered the gold standard of
+    00:57 - study design for reasons that we're going to talk about.
+    01:01 - But it's not always possible to do an experimental study or to do a randomized trial.
+    01:05 - So much of the medical literature that you're gonna
+    01:08 - encounter are our observational studies.
+    01:11 - So I'm gonna just review the different types of observational studies in this module.
+    01:15 - I'll point out to you that all of these different study designs
+    01:18 - provide different levels of evidence for the hypotheses they're testing,
+    01:22 - and they generally- the level of evidence increases as you go down this list.
+    01:27 - So when you're talking about
+    01:29 - descriptive or cross-sectional studies or case control studies,
+    01:32 - those, as we're going to talk about,
+    01:34 - have some potential biases and those are gonna have
+    01:37 - a lesser level of evidence than a cohort study,
+    01:40 - which is next on the list and a cohort study generally would have
+    01:43 - less of a level of evidence than a well-done randomized control trial.
+    01:48 - So there's increasing level of evidence as we go down this list.
+    01:52 - The reason that observational studies have-
+    01:55 - provide a lower level of evidence for hypothesis,
+    01:59 - the reason it's harder to draw conclusions from them
+    02:02 - has to do with a concept called confounding,
+    02:05 - and we're gonna spend a lot of time talking about confounding in this course.
+    02:08 - So I'm just gonna introduce the idea of confounding now.
+    02:11 - So confounding is this idea that risk factors don't happen in isolation.
+    02:17 - People who smoke also tend to drink
+    02:20 - and also tend to do other risky things for their health.
+    02:23 - So if you're just observing participants in a study,
+    02:26 - it's very hard to tease out
+    02:28 - a single risk factor from among the many risk factors that tend to go together.
+    02:33 - So a classic example of confounding would be the following.
+    02:36 - If you went out in the population and studied alcohol in lung cancer,
+    02:41 - if you looked at drinkers and tried to see
+    02:43 - whether or not drinking was related to lung cancer,
+    02:46 - in fact, you would find that people who are heavy drinkers tend to get more lung cancer.
+    02:51 - Those things are correlated.
+    02:52 - That might lead you to think that alcohol is somehow causing lung cancer.
+    02:58 - Alcohol does, is involved in some cancer.
+    03:01 - So that wouldn't be an unreasonable thing to conclude.
+    03:03 - However, it turns out that alcohol doesn't biologically cause lung cancer.
+    03:08 - What's going on here is that heavy drinkers also tend to be heavy smokers and of course,
+    03:13 - we know that smoking is a major,
+    03:15 - major cause of lung cancer.
+    03:17 - So in this case, the apparent association between alcohol and
+    03:21 - lung cancer is really just due to confounding by smoking.
+    03:27 - I'm just going to show you this table here because it's
+    03:30 - a really great illustration of how risk factors cluster in observational studies.
+    03:35 - So this is a study that we're gonna return to in
+    03:38 - another couple of weeks and we'll talk about in some- some more detail,
+    03:42 - but I'm just showing you table one for the men from this study.
+    03:47 - And this study was looking at whether
+    03:48 - or not how much red meat you- you eat is correlated to mortality.
+    03:54 - And what the researchers did was they just
+    03:56 - asked people to report how much red meat they're
+    03:59 - eating and they divide people up into quantiles of red meat intake.
+    04:04 - So Q1 is the lowest quantile,
+    04:06 - Q5 is the highest quantile.
+    04:08 - So if you just look at this table,
+    04:10 - obviously red meat intake increases as you go across the quantiles.
+    04:14 - That's expected because the groups were defined by red meat intake.
+    04:17 - But if you're gonna scroll down on the table,
+    04:19 - the ages and races aren't married different between the groups,
+    04:23 - but if you get down to the- the modifiable risk factors for health, things like BMI.
+    04:28 - Let's take a careful look at BMI.
+    04:30 - So if you look at BMI,
+    04:32 - in the first quantile of red meat intake,
+    04:34 - the lowest red meat eaters, BMI is 25.9.
+    04:37 - That increases as you go across the quantiles,
+    04:40 - 26.7, 27.1, 27.6, 28.3.
+    04:44 - So as you become a higher red meat eater,
+    04:48 - your BMI tends to go up and it's not necessarily because of the red meat eating,
+    04:52 - it's just that there's something about people who eat a lot of
+    04:55 - red meat that tends to also make them heavier.
+    04:57 - It's not just BMI though,
+    04:59 - let's look at smoking.
+    05:00 - So look at current smoking.
+    05:02 - Current smoking also increases
+    05:05 - so perfectly as you go up across the quantiles of red meat intake.
+    05:09 - So the lowest quantile has very few current smokers.
+    05:12 - The highest quantile has the highest number of smokers.
+    05:15 - So red meat eaters also tend to be smokers.
+    05:17 - If you look at education,
+    05:18 - education- higher education goes down as you go across the quantiles.
+    05:22 - If you look at exercise,
+    05:24 - exercise also goes down as you look across the quantiles.
+    05:27 - Calories go up as you look across the quantiles.
+    05:30 - So basically, red meat eaters are doing everything else wrong too.
+    05:34 - They also tend to smoke, to be heavy,
+    05:37 - they're not as well educated,
+    05:38 - they don't exercise as much, etc.
+    05:40 - So how do you isolate the effect of red meat eating on health or mortality?
+    05:46 - How do you isolate that one factor from among all of these factors that tend to cluster?
+    05:51 - It turns out to be a really hard thing to do.
+    05:54 - That's the problem of confounding.
+    05:57 - Now, we do try to either avoid or control for confounding in different ways.
+    06:03 - So of course, one way to- to deal with confounding is just in
+    06:07 - the design phase of the study is to do something like dual randomized trial.
+    06:11 - If you randomly assign people to different interventions,
+    06:15 - then you're ensuring that those interventions aren't related to any other risk factors.
+    06:20 - If you could do a study where you randomly assign people to eat a lot of red meat or not,
+    06:24 - then people with different characteristics would be equally likely
+    06:28 - to get in the red meat eating group or- or the low red meat eating group.
+    06:32 - So you can isolate a factor by randomizing on it.
+    06:36 - We also do things in the design phase of the study like matching.
+    06:39 - So we might have a case-control study,
+    06:42 - I gonna talk about case control studies in a minute here,
+    06:44 - where you have a case,
+    06:46 - somebody say who has breast cancer,
+    06:48 - a 50-year-old smoking woman who has breast cancer.
+    06:51 - You might go out and find a control for
+    06:53 - that case who's also a 50-year-old woman who smoke.
+    06:56 - So you're trying to control for confounding by finding people who are similar on them,
+    07:01 - at least the most important confounders.
+    07:04 - Those are things you can do in the design phase of the study.
+    07:07 - This course isn't really about study design.
+    07:09 - So we're going to be talking about the things that you can
+    07:11 - do when you already have the data in hand.
+    07:13 - So at the analysis phase of the study,
+    07:15 - is there something you can do statistically to try to tease out confounding?
+    07:19 - And there is, the way we generally try to tease
+    07:23 - out confounding is with something called multivariate regression.
+    07:27 - So we use a statistical technique to try to isolate
+    07:30 - the effect of red meat eating- eating from BMI,
+    07:35 - smoking and all of these other risk factors that cluster.
+    07:37 - So there are statistical ways to get at this.
+    07:40 - We call this statistically adjusting for confounders.
+    07:43 - Now statistical adjustment is certainly not a panacea.
+    07:46 - People give it too much credit as we're gonna talk about in some future weeks.
+    07:49 - So there are limitations to it.
+    07:51 - It's not never going to be as good as doing a randomized trial,
+    07:54 - but it- it is a powerful technique and we are gonna try to use that
+    07:57 - to get at isolating various risk factors.
+    08:02 - So the first type of observational study that I wanna briefly mention here,
+    08:06 - is what's called a cross-sectional study.
+    08:08 - If you look in the medical literature,
+    08:10 - there are a lot of cross-sectional studies in the literature,
+    08:12 - that's because they're easy to do.
+    08:14 - A- a cross-sectional study just looks
+    08:17 - at a sample of the population at a single time point,
+    08:20 - might measure, say, a disease and
+    08:22 - an exposure and try to see whether or not those things are correlated,
+    08:25 - but it's measuring everything at a single time point.
+    08:28 - It's easy to do because it's often done with a questionnaire or survey,
+    08:32 - it's usually inexpensive, uh,
+    08:34 - but it has a lot of limitations.
+    08:36 - So first of all, since you're measuring everything at the same time point,
+    08:39 - you don't even know what came first,
+    08:40 - you can't say for sure that the disease didn't
+    08:42 - come before the exposure rather than vice versa.
+    08:45 - So it's hard to tease out temporality,
+    08:47 - of course, cross-sectional studies also face confounding.
+    08:50 - So there's a limited amount of information you can get from cross-sectional studies,
+    08:54 - yet they're easy to do, so you're gonna see a lot of them.
+    08:57 - An example of a cross-sectional study from the literature is a study that was
+    09:01 - done on a large cohort of elderly men and women in Rotterdam,
+    09:05 - and what they did was they took this sample,
+    09:08 - and they look- they wanted to know what's the prevalence of artery blockage,
+    09:12 - and what's the prevalence of depressive symptoms.
+    09:14 - So they imaged their arteries,
+    09:16 - they took a picture to try to figure out
+    09:17 - how much blockage was there and at the same time,
+    09:19 - they also gave them a questionnaire,
+    09:21 - and asked about their depressive symptoms.
+    09:23 - So they're looking at everything at one time point and they
+    09:25 - just wondered if those two things correlated.
+    09:28 - Now, if it turns out that those two things do correlate,
+    09:30 - that artery blockage and depression tend to go together in this sample,
+    09:34 - the researchers would not be able to conclude that
+    09:36 - the artery blockage caused the depression, right?
+    09:39 - It could easily, that the temporality,
+    09:42 - could easily go in the other direction, that is,
+    09:43 - the depression could have preceded the artery blockage,
+    09:46 - we wouldn't know which way it went.
+    09:48 - So that's a major limitation of cross-sectional studies.
+    09:52 - Another type of observational study design is called the case-control study.
+    09:57 - This is a study that- design that's especially used when you have a rare disease,
+    10:02 - or an outbreak situation.
+    10:04 - So you're actually going to go out and find
+    10:06 - people who have already developed the disease of interest.
+    10:09 - So this works really well, imagine if you were trying just do
+    10:11 - a cross-sectional study of something that was a very rare outcome or a rare disease,
+    10:15 - you wouldn't be able to find enough people
+    10:17 - if you're just randomly sampled in the population.
+    10:20 - So in a case control study,
+    10:21 - you go out and actually actively seek people who already have the disease of interest,
+    10:25 - then, that- you form a- a case group,
+    10:28 - and then you try to find a set of controls,
+    10:31 - people who don't have the disease,
+    10:32 - and you're trying to figure out what's different in
+    10:35 - the risk factors between the cases and the controls.
+    10:38 - So you're a- asking retrospectively about their risk factors and exposures.
+    10:42 - So again, it's great for rare diseases because a lot of times there may not be
+    10:46 - any other study design that you can realistically do for a rare disease.
+    10:50 - It's also the only study design that really works in outbreak situations.
+    10:53 - So imagine we've got an outbreak of salmonella food poisoning,
+    10:56 - and you need to find quickly the- the source of that,
+    10:59 - the way that you're gonna do that is you're gonna go
+    11:01 - ask the cases that people who came down with the illness,
+    11:04 - what they've eaten recently,
+    11:05 - and you're gonna ask some controls,
+    11:07 - people who live in the same area but didn't get sick when they've eaten recently,
+    11:10 - and that's how you'll fill it out, the source of that.
+    11:13 - Of course, case-control studies have some major limitations,
+    11:16 - so it's actually very tricky to get an appropriate control group,
+    11:20 - sometimes in choosing the control group, you accidentally,
+    11:23 - somehow, uh, systematically, choose the control group differently
+    11:27 - than the case group in some way that has nothing to do with the- the disease,
+    11:31 - so that it could cause a spurious a- association between a- an exposure and a disease.
+    11:36 - There's also something called recall bias that you worry about with case-control studies,
+    11:40 - you're asking people about their exposures and risk factors after they've
+    11:44 - already developed a disease that may affect how they remember things.
+    11:48 - So cases may remember things differently than controls.
+    11:51 - Of course, case-control studies face confounding, uh, also,
+    11:54 - we don't really know for sure whether or not
+    11:56 - the risk factor preceded the disease or the disease proceeded the risk factor,
+    12:00 - because again, you're measuring things after the disease has already occurred.
+    12:04 - But case-control studies have actually been very important in history,
+    12:08 - and, uh, I can point to some examples, so, for example,
+    12:11 - in the early days of the AIDS epidemic in the early 1980s,
+    12:15 - the early studies that were done,
+    12:18 - because that was an outbreak situation,
+    12:19 - were all case-control studies,
+    12:21 - and those case-control studies were able to quickly fa- figure out that AIDS,
+    12:26 - was transmitted by sexual contact or blood products,
+    12:29 - and that was before we even knew that this was a virus.
+    12:32 - One of the earliest case-control studies in the literature on
+    12:35 - AIDS was published in the New England Journal of Medicine in 1982,
+    12:39 - and they went out and found cases,
+    12:41 - people who had AIDS,
+    12:43 - and they found some group of controls to compare them with,
+    12:46 - and they found that the cases were much more likely to have
+    12:49 - used a particular type of drug than the controls.
+    12:52 - Now, it turns out that that drug actually wasn't a causative agent in AIDS,
+    12:55 - so this is actually an example of confounding,
+    12:57 - but people who used this drug,
+    12:59 - also tended to be doing the other high-risk behaviors that were associated with,
+    13:04 - uh, coming down with AIDS.
+    13:05 - The next type of study design has
+    13:07 - some major advantages over cross-sectional and case-control studies.
+    13:10 - It's still an observational design,
+    13:12 - but it's called a prospective cohort study,
+    13:14 - and what you do is you measure people,
+    13:17 - you measure their risk factors and exposures before they develop diseases or outcomes.
+    13:23 - So you're measuring them when you know that they haven't yet got the disease of interest,
+    13:27 - then you're following them over time.
+    13:29 - So this allows you to know for sure that the exposure to the risk factors,
+    13:33 - actually preceded the outcomes or the diseases.
+    13:37 - It also allows you, because you're following people over time,
+    13:40 - you can calculate some important measures of disease frequency,
+    13:43 - like, what's the risk of coming down with a given disease?
+    13:45 - Or what's the rate of, uh, of that disease?
+    13:48 - How frequently is that disease occurring in the population?
+    13:51 - Another advantage, of cohort study is,
+    13:53 - sometimes you'll design a cohort study to look at
+    13:55 - one outcome like maybe you wanna look at heart disease,
+    13:58 - but then later on,
+    13:59 - you've spent all this time and collected all this data,
+    14:02 - you might piggyback on a second outcome like, oh, well,
+    14:05 - since we've, we've got all this information on these people,
+    14:08 - let's also look at the outcome of hear- of uh,
+    14:10 - breast cancer or something like that.
+    14:12 - So a lot of these major cohort studies have
+    14:14 - actually ended up piggybacking on multiple outcomes.
+    14:16 - The drawback of prospective cohort study is,
+    14:18 - it's still observational, so you're still gonna deal with confounding.
+    14:21 - Uh, and they take a really long time,
+    14:23 - if you're waiting for people to come down with diseases,
+    14:26 - these things can go on for decades,
+    14:28 - so they can be very expensive.
+    14:30 - Also, if you're following people for a long time,
+    14:32 - you may lose a lot of the participants in that can create-
+    14:34 - create some- some trickiness in in- interpreting the data.
+    14:37 - But a famous example of a cohort study is the Framingham Heart Study.
+    14:42 - This was started in 1948,
+    14:44 - researchers enrolled about 5,000 residents of Framingham,
+    14:47 - Massachusetts in a certain age bracket,
+    14:49 - and they measured, their health and lifestyle factors.
+    14:51 - So things like their blood pressure,
+    14:53 - their weight, how much they exercised.
+    14:55 - They followed them for decades after that
+    14:57 - to see who actually came down with heart disease.
+    14:59 - And it was from this study that we were able to
+    15:02 - learn things like high blood pressure causes heart disease,
+    15:05 - being too heavy is bad for your heart,
+    15:08 - exercising is good for your heart,
+    15:09 - all of those kind of things that we take for granted about heart disease,
+    15:13 - now, we learned from this study.
+    15:14 - And it- actually that study continues today,
+    15:17 - they're now going on to track the kids and grand-kids from that original cohort.
+    15:22 - Sometimes we do it a little bit different version of
+    15:24 - a cohort study called a retrospective cohort study.
+    15:27 - It's conceptually very similar to a prospective cohort study.
+    15:30 - So the exposures are still measured before the outcomes.
+    15:35 - However, with a retrospective cohort study,
+    15:38 - what you're doing is going out and looking for
+    15:41 - databases in which you already have data on everything.
+    15:44 - So the data onto the exposures and the data on
+    15:47 - the outcomes has already been collected for some other purpose.
+    15:50 - So that saves you time because
+    15:53 - you're not- you're no longer waiting for the outcomes to occur,
+    15:55 - the outcomes have already occurred,
+    15:57 - but you're going back and mining some data sources that
+    16:00 - has collected data on the exposure and has also collected data on the outcome.
+    16:04 - So it's clearly gonna be cheaper and faster than prospective studies,
+    16:08 - we still have the advantage that we are gonna know
+    16:10 - because of the timing of when those databases were set up,
+    16:13 - that the exposure data, we're definitely collected before the outcome data,
+    16:16 - we know that to be the case.
+    16:18 - The major limitation here,
+    16:20 - in addition to the other limitations of a prospective cohort study,
+    16:24 - is that because the data were not collected expressive for your study,
+    16:28 - uh, you- you may not,
+    16:30 - the- the variables that you're interested in may not exist in the stored data,
+    16:34 - or the data quality may be low.
+    16:36 - So there's issues with data quality that come up because you're just
+    16:39 - mining some existing databases or stored data.
+    16:43 - But an example of a retrospective cohort study
+    16:46 - was a 2012 study in the British Medical Journal,
+    16:49 - and they were asking the question, could they relate,
+    16:52 - um, different types of athletics to mortality?
+    16:57 - So they searched a sports reference database, and that, uh,
+    17:00 - database keeps track of lots of famous athletes,
+    17:03 - including all the Olympians.
+    17:05 - They were able to identify from that database a cohort of about, uh,
+    17:09 - just under 10,000 athletes who had participated in the Olympics between 1896 and 1936.
+    17:15 - Somebody had put information about all these athletes in this database.
+    17:18 - They use a cutoff of- they wanted to look at only of athletes
+    17:21 - that were born before 1910 because they want to look at mortality,
+    17:24 - so they wanted only athletes who had had time to die.
+    17:27 - Uh, and the database also contain the dates of deaths of ma- most of these athletes.
+    17:33 - So they were able to ferried out of this database, uh,
+    17:36 - to compare the mortality rates of athletes from different types of sports.
+    17:40 - So they used all of this data that was already stored,
+    17:42 - the outcomes that had already occurred but clearly,
+    17:44 - they knew that the participation in the Olympics,
+    17:47 - uh, had preceded the outcomes of,
+    17:49 - uh, the outcome of death.
+    17:50 - A final little twist on
+    17:54 - the case-control study that I wanna mention because you'll see this
+    17:57 - occasionally is something called a Nested Case-Control Study.
+    17:59 - So a nested case-control study is a case-control study that is
+    18:03 - nested within a prospective cohort study.
+    18:06 - So you're already doing a prospective cohort study,
+    18:09 - but you've collected something,
+    18:11 - usually some kind of biomarker like blood or DNA and you
+    18:15 - want to do some kind of expensive assay on that blood or DNA.
+    18:20 - So maybe you wanna do a whole genome sequence or something,
+    18:23 - something that's costly enough that you don't want to do it on
+    18:25 - every participant in the cohort because it would be prohibitively expensive.
+    18:29 - So what you can do instead is do a little case-control study from within that cohort.
+    18:34 - So if you are- if there's a particular disease you're interested in,
+    18:37 - you wait until enough people in that cohort develop that disease,
+    18:42 - that becomes the case group.
+    18:43 - And then you measure,
+    18:45 - you run the expensive assay on everybody in the case group,
+    18:48 - and these are samples that you stored at
+    18:50 - the beginning of the study when you had formed the cohort,
+    18:52 - so you know that these blood samples were collected before people got the disease.
+    18:56 - But then rather than measuring everybody else in the cohort,
+    19:00 - running everybody else's blood through this assay,
+    19:02 - you will set- select just a small sub-sample of the cohort control.
+    19:07 - People who did not get the disease,
+    19:09 - often they'll build- take for every case,
+    19:11 - they'll find one control from the rest of the cohort and you'll measure the blood,
+    19:15 - the- the DNA of that person.
+    19:17 - So that is an efficient study design.
+    19:19 - You don't have to go through and measure everybody in the cohort
+    19:22 - when you have so many more controls in the cohort than you have cases.
+    19:26 - Let me just give you an example of a nested case-control study.
+    19:30 - So there was a study in Zimbabwe
+    19:32 - that enrolled a hundred and seventy-seven pregnant women.
+    19:35 - They were all HIV positive in enrollment,
+    19:37 - and the study followed the women,
+    19:39 - uh, until six weeks after the birth of the infant.
+    19:42 - They identified 29 cases.
+    19:45 - These were mothers who had transmitted HIV to their infants by six weeks postpartum.
+    19:50 - So these 29 women,
+    19:52 - they're gonna run the assay of interest on all 29,
+    19:55 - and what they were wanted to look at was they had
+    19:58 - measured blood during pregnancy and they wanted to
+    20:00 - see whether or not the HIV RNA levels from pregnancy affected whether or not,
+    20:05 - uh, the mother transmitted HIV to her infant.
+    20:08 - So they measured that RNA load tests,
+    20:11 - they ran that assay on each of the cases,
+    20:14 - but then they only ran that assay on 29 controls,
+    20:17 - not the rest of the cohort,
+    20:18 - the rest of a hundred and forty-eight people in the cohort,
+    20:23 - but only on 29 of them.
+    20:24 - So for each case, they found a similar control,
+    20:27 - somebody who is similar on things like AIDS but it had not transmitted HIV to her infant,
+    20:32 - and they measure the HIV RNA load,
+    20:34 - uh, from the blood samples of those 29 women.
+    20:36 - So they only had to run 58 assays rather than a hundred and seventy-seven.
+    20:41 - So that's it for observational studies.
+    20:43 - Moving onto experimental studies, of course,
+    20:46 - the gold standard is the randomized clinical trial.
+    20:48 - Yeah, and the advantage of the randomized trial is, again,
+    20:52 - that you are randomly assigning people to interventions which minimizes confounding.
+    20:57 - You are isolating a particular treatment or drug or intervention
+    21:02 - from all of those other risk factors that tend to
+    21:04 - cluster when you let people decide for themselves.
+    21:07 - There's other things you can do in
+    21:09 - randomized clinical trials that help to minimize biases.
+    21:12 - So for example, off in, uh,
+    21:13 - randomized trials will be blinded,
+    21:15 - so people don't know which intervention they're on.
+    21:17 - Sometimes the investigators will be blinded,
+    21:19 - so even the investigators in their analysis of the data can't be biased.
+    21:23 - Randomized trials are often placebo-controlled,
+    21:26 - so you can, uh, subtract out the placebo effect.
+    21:29 - So there's a lot of important information you'd get out of randomized trials.
+    21:32 - And again, it is considered the gold standard in terms of level of evidence.
+    21:36 - The major limitation is that randomized trials tend to be very expensive.
+    21:40 - You can't really run them for very long,
+    21:42 - so you can only look at short-term outcomes.
+    21:44 - And it's not always possible even to do a randomized trial.
+    21:48 - It's not always ethical to randomize people.
+    21:50 - So for example, you couldn't really ethically randomize people to
+    21:53 - smoke or to eat heavy amounts of red meat or drink heavy amounts of alcohol.
+    21:58 - Finally, randomized trials usually have pretty strict eligibility criteria
+    22:02 - and that leads to the results of
+    22:04 - the randomized trial not always being very generalizable.
+    22:06 - That means the- the results may apply to
+    22:08 - a very specific subset of patients but not to all the patients that you would care about.
+    22:13 - An example of a randomized trial is this example that I mentioned in
+    22:18 - the teaser and it's an example that I'm going to keep
+    22:20 - using to illustrate the concepts this week.
+    22:23 - So this was a double-blind randomized control trial.
+    22:26 - It was published in the New England Journal of Medicine in 2000.
+    22:29 - And the researchers were comparing what's called a COX-2 inhibitor,
+    22:33 - a COX-2 inhibitor named rofecoxib.
+    22:35 - Uh, I'm now gonna tell you what the actual brand name of that drug is.
+    22:39 - The drug is actually Vioxx,
+    22:41 - and if I say that the drug is Vioxx,
+    22:44 - some of you will remember,
+    22:45 - that will trigger a memory that,
+    22:46 - that was in the media,
+    22:47 - Vioxx was in the media very heavily in the mid 2000.
+    22:51 - Uh, but they were studying Vioxx as a new, uh,
+    22:55 - pain treatment for rheumatoid arthritis
+    22:57 - and they were comparing it with an older pain treatment,
+    22:59 - a non-steroidal anti-inflammatory called Naproxen.
+    23:03 - And what they were interested in is that Naproxen and
+    23:06 - other non-steroidal anti-inflammatories tend to cause stomach problems.
+    23:09 - People get ulcers and stomach bleeding.
+    23:11 - They believed that the COX-2 inhibitors,
+    23:13 - this new class of pain drugs,
+    23:15 - would be beneficial because they would reduce
+    23:17 - the incidence of things like ulcers and stomach bleeding.
+    23:20 - So their primary outcome was to look at these GI events.
+    23:23 - They randomly assigned about 8,000 patients with
+    23:26 - arthritis to receive either Vioxx or Naproxen twice daily.
+    23:29 - It was a double-blind study,
+    23:30 - so the patients didn't know what drug they're on,
+    23:32 - the investigators didn't know.
+    23:34 - And again, the primary endpoint was
+    23:36 - confirmed upper gastrointestinal events such as ulcers and bleeding.
+    23:40 - So I'm gonna be showing you a lot of the data
+    23:42 - from this study in the next couple of modules.
